@@ -1,0 +1,42 @@
+/* GymGate design tokens — a technical, engineered-hardware palette.
+   Named per the design brief: 4-6 core hex values, one disciplined accent. */
+:root {
+  /* --- Surfaces --- */
+  --ink: #08090d;         /* page background */
+  --ink-raised: #0e1119;  /* nav / footer wash */
+  --surface: #12151d;     /* card & panel fill */
+  --surface-2: #171b25;   /* nested panel fill, one step up */
+
+  /* --- Lines --- */
+  --line: #232837;        /* structural hairlines */
+  --line-soft: #1a1e28;   /* quiet dividers */
+
+  /* --- Text --- */
+  --paper: #eef0f5;       /* primary text on dark */
+  --muted: #9aa2b4;       /* secondary text */
+  --muted-2: #5c6479;     /* tertiary / disabled */
+
+  /* --- The one accent: GymGate's own brand blue --- */
+  --signal: #4a86ff;
+  --signal-strong: #6c9dff;
+  --signal-wash: rgba(74, 134, 255, 0.12);
+  --signal-line: rgba(74, 134, 255, 0.35);
+
+  /* --- Type --- */
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* --- Rhythm --- */
+  --section-pad-y: clamp(4.5rem, 9vw, 8rem);
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --content-max: 1180px;
+
+  /* --- Motion --- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 0.22s;
+  --dur-med: 0.5s;
+}

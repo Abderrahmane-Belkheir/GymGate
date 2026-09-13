@@ -1,0 +1,58 @@
+.shot-img {
+  width: 100%;
+  display: block;
+}
+
+/* Desktop app screen, framed like a plain window. */
+.shot-window {
+  width: 100%;
+  max-width: 640px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.shot-chrome {
+  display: flex;
+  gap: 6px;
+  padding: 10px 14px;
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--line);
+}
+
+.shot-chrome span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+/* Owner's mobile app screen — same bezel language as OwnerExperience's
+   hand-drawn phone, so a dropped-in screenshot doesn't look like a
+   different component. */
+.shot-phone {
+  position: relative;
+  width: 232px;
+  padding: 2.4rem 1.1rem 1.4rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+}
+
+.shot-phone-notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 5px;
+  border-radius: 4px;
+  background: var(--line);
+}
+
+.shot-phone .shot-img {
+  border-radius: 14px;
+}

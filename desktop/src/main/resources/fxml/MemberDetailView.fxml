@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<!-- Per-member detail + stats. Lives inside the Members screen: MembersController
+     swaps this in over the member list (fade/rise) when "Details" is chosen from a
+     member's row menu, and back on "Members" / navigating away.
+
+     Structure, top to bottom:
+       1. Back link
+       2. Identity band  - who + status + current plan summary + member actions
+       3. KPI strip       - lifetime value / payments / visits / visits-per-week
+       4. Facts card      - Membership | Training pattern | Visits by month
+       5. History         - one full-height table, Payments / Attendance chosen
+                            by the segmented toggle above it
+
+     All labels/tables are populated by MemberDetailController; the action
+     buttons route back to MembersController's existing member operations. -->
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.GymGate.UI.controller.MemberDetailController"
+      styleClass="home-root, members-page-root, member-detail-root" spacing="14">
+    <padding>
+        <Insets top="16" right="28" bottom="26" left="28"/>
+    </padding>
+
+    <Button fx:id="backButton" styleClass="member-detail-back">
+        <graphic>
+            <HBox spacing="7" alignment="CENTER_LEFT">
+                <FontIcon iconLiteral="fas-arrow-left" styleClass="member-detail-back-icon"/>
+                <Label text="%Members" styleClass="member-detail-back-label"/>
+            </HBox>
+        </graphic>
+    </Button>
+
+    <!-- Identity band -->
+    <HBox styleClass="members-page-header, member-detail-identity" spacing="18" alignment="CENTER_LEFT">
+        <Region styleClass="members-title-accent, member-detail-accent"/>
+
+        <StackPane fx:id="avatarSlot"/>
+
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Label fx:id="memberNameLabel" styleClass="member-detail-name"/>
+                <Label fx:id="statusBadge" styleClass="badge"/>
+            </HBox>
+            <Label fx:id="contactLabel" styleClass="member-detail-contact"/>
+            <HBox alignment="CENTER_LEFT">
+                <HBox fx:id="planChip" styleClass="member-detail-plan-chip" spacing="7" alignment="CENTER_LEFT"/>
+            </HBox>
+        </VBox>
+
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button fx:id="membershipButton" styleClass="pill-action-button"/>
+            <Button fx:id="deleteButton" styleClass="pill-action-button, pill-action-danger">
+                <graphic>
+                    <HBox spacing="8" alignment="CENTER">
+                        <FontIcon iconLiteral="fas-trash" styleClass="pill-icon-primary"/>
+                        <Label text="%Delete" styleClass="pill-label-primary"/>
+                    </HBox>
+                </graphic>
+            </Button>
+        </HBox>
+    </HBox>
+
+    <!-- KPI strip -->
+    <HBox fx:id="kpiRow" spacing="14"/>
+
+    <!-- Facts + history -->
+    <HBox spacing="20" VBox.vgrow="ALWAYS">
+
+        <!-- Left: at-a-glance facts, grouped in one card. Capped to its content
+             height so it doesn't stretch with the full-height history panel. -->
+        <VBox styleClass="panel-card, member-detail-facts" spacing="15" maxHeight="-Infinity"
+              prefWidth="348" minWidth="308" maxWidth="376">
+            <padding><Insets top="18" right="20" bottom="18" left="20"/></padding>
+
+            <VBox spacing="10">
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <FontIcon iconLiteral="fas-id-card" styleClass="detail-section-icon"/>
+                    <Label text="%Membership" styleClass="panel-title"/>
+                </HBox>
+                <VBox fx:id="membershipRows" spacing="0"/>
+            </VBox>
+
+            <Separator styleClass="plan-divider"/>
+
+            <VBox spacing="10">
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <FontIcon iconLiteral="fas-walking" styleClass="detail-section-icon"/>
+                    <Label text="%Training_Pattern" styleClass="panel-title"/>
+                </HBox>
+                <VBox fx:id="patternRows" spacing="0"/>
+            </VBox>
+
+            <Separator styleClass="plan-divider"/>
+
+            <VBox spacing="10">
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <FontIcon iconLiteral="fas-chart-bar" styleClass="detail-section-icon"/>
+                    <Label text="%Visits_by_Month" styleClass="panel-title"/>
+                </HBox>
+                <VBox fx:id="monthBars" spacing="5"/>
+            </VBox>
+        </VBox>
+
+        <!-- Right: one full-height history table, switched by the toggle -->
+        <VBox spacing="10" HBox.hgrow="ALWAYS">
+
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <fx:define>
+                    <ToggleGroup fx:id="historyToggle"/>
+                </fx:define>
+                <HBox spacing="0" alignment="CENTER_LEFT" styleClass="filter-group">
+                    <ToggleButton fx:id="paymentsTab" text="%Payments" selected="true"
+                                  toggleGroup="$historyToggle"
+                                  styleClass="filter-option, filter-option-history"/>
+                    <ToggleButton fx:id="attendanceTab" text="%Attendance"
+                                  toggleGroup="$historyToggle"
+                                  styleClass="filter-option, filter-option-history"/>
+                </HBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="historyCaptionLabel" styleClass="detail-history-caption"/>
+            </HBox>
+
+            <StackPane fx:id="historySlot" styleClass="attendance-table-frame" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </HBox>
+</VBox>

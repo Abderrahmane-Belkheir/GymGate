@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.atlasfitness</groupId>
+    <artifactId>gym-management-fx</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <javafx.version>21.0.2</javafx.version>
+        <ikonli.version>12.3.1</ikonli.version>
+    </properties>
+
+    <dependencies>
+        <!-- JavaFX -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+
+        <!-- Ikonli icon packs (FontAwesome 5) -->
+        <dependency>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-javafx</artifactId>
+            <version>${ikonli.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-fontawesome5-pack</artifactId>
+            <version>${ikonli.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.sarxos</groupId>
+            <artifactId>webcam-capture</artifactId>
+            <version>0.3.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openpnp</groupId>
+            <artifactId>opencv</artifactId>
+            <version>4.9.0-0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.microsoft.onnxruntime</groupId>
+            <artifactId>onnxruntime</artifactId>
+            <version>1.23.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.46.1.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.18.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <!-- Application JAR -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.2</version>
+                <configuration>
+                    <outputDirectory>${project.build.directory}/libs</outputDirectory>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.GymGate.Launcher</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- Copy all dependencies -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.6.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-libs</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/libs</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Compiler -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <release>17</release>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+    </build>
+
+    <profiles>
+        <!--
+          Release hardening. Obfuscates the app jar with ProGuard between the
+          `jar` and `jlink`/`jpackage` steps.
+
+          OFF by default so a plain `mvn package` stays debuggable. The release
+          path (Configure.java / gg.exe) builds with:
+
+              mvn clean package -Pobfuscate
+
+          Only com.GymGate.** (the project jar) is processed; every dependency
+          is a -libraryjar. FXML instantiates controllers and custom components
+          by class name and injects @FXML members by field name, so those two
+          packages are kept verbatim — the protection is on the business, AI,
+          camera and licensing code.
+
+          The name map is written to target/proguard_map.txt — keep a copy per
+          release to de-obfuscate stack traces from the field.
+        -->
+        <profile>
+            <id>obfuscate</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.wvengen</groupId>
+                        <artifactId>proguard-maven-plugin</artifactId>
+                        <version>2.7.0</version>
+                        <executions>
+                            <execution>
+                                <id>obfuscate-app-jar</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>proguard</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <proguardVersion>7.5.0</proguardVersion>
+                            <!-- jar-plugin writes the artifact into target/libs;
+                                 read it there, write the obfuscated copy to
+                                 target/, then the antrun step below drops it
+                                 back into target/libs for jlink/jpackage. -->
+                            <injar>libs/${project.build.finalName}.jar</injar>
+                            <outjar>${project.build.finalName}.jar</outjar>
+                            <obfuscate>true</obfuscate>
+                            <includeDependency>true</includeDependency>
+                            <libs>
+                                <lib>${java.home}/jmods/java.base.jmod</lib>
+                                <lib>${java.home}/jmods/java.desktop.jmod</lib>
+                                <lib>${java.home}/jmods/java.sql.jmod</lib>
+                                <lib>${java.home}/jmods/java.sql.rowset.jmod</lib>
+                                <lib>${java.home}/jmods/java.naming.jmod</lib>
+                                <lib>${java.home}/jmods/java.logging.jmod</lib>
+                                <lib>${java.home}/jmods/java.xml.jmod</lib>
+                                <lib>${java.home}/jmods/java.prefs.jmod</lib>
+                                <lib>${java.home}/jmods/java.net.http.jmod</lib>
+                                <lib>${java.home}/jmods/java.management.jmod</lib>
+                                <lib>${java.home}/jmods/java.scripting.jmod</lib>
+                                <lib>${java.home}/jmods/jdk.crypto.ec.jmod</lib>
+                                <lib>${java.home}/jmods/jdk.unsupported.jmod</lib>
+                            </libs>
+                            <options>
+                                <option>-dontshrink</option>
+                                <option>-dontoptimize</option>
+                                <option>-dontusemixedcaseclassnames</option>
+                                <option>-keepattributes SourceFile,LineNumberTable,*Annotation*,Signature,Exceptions,InnerClasses,EnclosingMethod</option>
+                                <option>-renamesourcefileattribute SourceFile</option>
+
+                                <!-- entry point + JavaFX-instantiated Application -->
+                                <option>-keep public class com.GymGate.Launcher { public static void main(java.lang.String[]); }</option>
+                                <option>-keep class com.GymGate.GymGateEntry { *; }</option>
+
+                                <!-- FXML wires these by name -->
+                                <option>-keep class com.GymGate.UI.controller.** { *; }</option>
+                                <option>-keep class com.GymGate.UI.component.** { *; }</option>
+                                <option>-keepclassmembers class com.GymGate.** { @javafx.fxml.FXML *; }</option>
+
+                                <!-- enums referenced via name()/valueOf() -->
+                                <option>-keepclassmembers enum com.GymGate.** { public static **[] values(); public static ** valueOf(java.lang.String); }</option>
+
+                                <option>-dontwarn</option>
+                                <option>-dontnote</option>
+                            </options>
+                        </configuration>
+                        <dependencies>
+                            <dependency>
+                                <groupId>com.guardsquare</groupId>
+                                <artifactId>proguard-base</artifactId>
+                                <version>7.5.0</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <executions>
+                            <execution>
+                                <id>place-obfuscated-jar</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <copy file="${project.build.directory}/${project.build.finalName}.jar"
+                                              tofile="${project.build.directory}/libs/${project.build.finalName}.jar"
+                                              overwrite="true"/>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

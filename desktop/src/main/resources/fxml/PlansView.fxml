@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<!-- Backgrounds/surfaces on this screen use the extra "plans-page-*" classes
+     layered on top of the shared "home-scroll" / "home-root" base, same
+     pattern as MembersView, so Home/Attendance/Payments/Settings keep their
+     existing plain-white look untouched. -->
+<ScrollPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.GymGate.UI.controller.PlansController"
+            styleClass="home-scroll, plans-page-scroll" fitToWidth="true" fitToHeight="true">
+
+<VBox styleClass="home-root, plans-page-root" spacing="20">
+    <padding><Insets top="20" right="28" bottom="24" left="28"/></padding>
+
+    <!-- Header card: title/subtitle on the left; gender filter (UI state only,
+         both options continue to use PlansController#loadPlans() — no
+         backend filtering) sits directly beside the New Plan button. -->
+    <HBox alignment="CENTER_LEFT" spacing="12" styleClass="plans-page-header">
+        <fx:define>
+            <ToggleGroup fx:id="genderToggleGroup"/>
+        </fx:define>
+        <Region styleClass="plans-title-accent"/>
+        <VBox spacing="2">
+            <Label text="%Membership_Plans" styleClass="page-title"/>
+            <Label text="%Create,_edit_and_manage_gym_membership_plans" styleClass="page-subtitle"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <HBox spacing="0" alignment="CENTER_LEFT" styleClass="filter-group">
+            <ToggleButton fx:id="genderMaleButton" text="%Male" toggleGroup="$genderToggleGroup" selected="true"
+                          styleClass="filter-option, filter-option-male"/>
+            <ToggleButton fx:id="genderFemaleButton" text="%Female" toggleGroup="$genderToggleGroup"
+                          styleClass="filter-option, filter-option-female"/>
+        </HBox>
+        <Button fx:id="newPlanButton" styleClass="pill-action-button, pill-action-primary">
+            <graphic>
+                <HBox spacing="10" alignment="CENTER">
+                    <FontIcon iconLiteral="fas-plus" styleClass="pill-icon-primary"/>
+                    <Label text="%New_Plan" styleClass="pill-label-primary"/>
+                </HBox>
+            </graphic>
+        </Button>
+    </HBox>
+
+    <!-- Plan cards, populated by PlansController (wraps to a new row like the screenshot) -->
+    <FlowPane fx:id="plansContainer" hgap="20" vgap="20"/>
+
+    <!-- Single-session ("séance") drop-in prices for the selected gender —
+         SeancePricesPanel, added by PlansController, sits below the plans -->
+    <VBox fx:id="seanceContainer"/>
+
+</VBox>
+</ScrollPane>

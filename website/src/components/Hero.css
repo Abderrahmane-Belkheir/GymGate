@@ -1,0 +1,134 @@
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(640px 480px at 88% 78%, var(--signal-wash), transparent 65%),
+    var(--ink);
+  padding-block: 96px 64px;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-inner {
+  max-width: 680px;
+}
+
+.hero-headline {
+  margin: 0.35em 0 0;
+  font-size: clamp(2.6rem, 1.5rem + 3.6vw, 4.5rem);
+}
+
+.hero-line-mask {
+  display: block;
+  overflow: hidden;
+}
+
+.hero-line {
+  display: block;
+  will-change: transform;
+}
+
+.hero-line-accent {
+  color: var(--signal-strong);
+}
+
+.hero-lede-row {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.8rem;
+}
+
+.hero-lede {
+  max-width: 40ch;
+  margin: 0;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  flex-shrink: 0;
+}
+
+.hero-scrollcue {
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 50px;
+  background: var(--line);
+  z-index: 2;
+  overflow: visible;
+}
+
+.hero-scrollcue span {
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--signal-strong);
+  animation: cue-drop 2.4s ease-in-out infinite;
+}
+
+@keyframes cue-drop {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scrollcue span {
+    animation: none;
+    top: 45%;
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 1080px) {
+  .hero {
+    display: block;
+    padding-top: 120px;
+  }
+
+  .hero-inner {
+    max-width: none;
+  }
+
+  .hero-scrollcue {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero-lede-row {
+    display: block;
+  }
+
+  .hero-actions {
+    margin-top: 1.6rem;
+  }
+}

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<!-- Backgrounds/surfaces on this screen use the extra "attendance-page-*"
+     classes layered on top of the shared "home-scroll" / "home-root" base,
+     same pattern as MembersView / PlansView, so Home/Payments/Settings keep
+     their existing plain-white look untouched. The table reuses the shared
+     "attendance-table" base plus a scoped "attendance-view-table" class so it
+     picks up the same refined header/row treatment as the Members table
+     without affecting the Payments table (which stays on the plain base). -->
+<ScrollPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.GymGate.UI.controller.AttendanceController"
+            styleClass="home-scroll, attendance-page-scroll"
+            fitToWidth="true"
+            fitToHeight="true">
+
+    <VBox styleClass="home-root, attendance-page-root" spacing="12">
+        <padding>
+            <Insets top="20" right="28" bottom="24" left="28"/>
+        </padding>
+
+        <!-- Header card: title/subtitle and the List / Statistics switch on the
+             left; the check-in total for the current scope, then the row count,
+             on the right. -->
+        <HBox alignment="CENTER_LEFT" spacing="16" styleClass="attendance-page-header">
+            <fx:define>
+                <ToggleGroup fx:id="viewToggle"/>
+            </fx:define>
+            <Region styleClass="attendance-title-accent"/>
+            <VBox spacing="2">
+                <Label text="%Attendance" styleClass="page-title"/>
+                <Label text="%View_member_attendance_history" styleClass="page-subtitle"/>
+            </VBox>
+            <HBox spacing="0" alignment="CENTER_LEFT" styleClass="filter-group">
+                <ToggleButton fx:id="listTab" text="%List" selected="true"
+                              toggleGroup="$viewToggle" styleClass="filter-option, filter-option-history"/>
+                <ToggleButton fx:id="statsTab" text="%Statistics"
+                              toggleGroup="$viewToggle" styleClass="filter-option, filter-option-history"/>
+            </HBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <VBox fx:id="totalBlock" alignment="CENTER_RIGHT" spacing="1"
+                  styleClass="payments-revenue-block" visible="false" managed="false">
+                <Label text="%Check-ins" styleClass="payments-revenue-caption"/>
+                <Label fx:id="totalLabel" styleClass="payments-revenue-value"/>
+            </VBox>
+            <Region fx:id="totalDivider" styleClass="payments-header-divider"
+                    visible="false" managed="false"/>
+            <Label fx:id="countLabel" styleClass="member-count-badge"/>
+        </HBox>
+
+        <!-- Selector bar: the stats granularity (only in Statistics view), then
+             the year / month / day pickers, then Confirm. -->
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="attendance-date-bar">
+            <fx:define>
+                <ToggleGroup fx:id="granularityToggle"/>
+            </fx:define>
+            <FontIcon iconLiteral="fas-calendar-alt" styleClass="attendance-date-hint-icon"/>
+            <Label fx:id="dateHintLabel" text="%Date" styleClass="attendance-date-hint"/>
+
+            <HBox fx:id="granularityBar" spacing="0" alignment="CENTER_LEFT"
+                  styleClass="filter-group" visible="false" managed="false">
+                <ToggleButton fx:id="monthTab" text="%Month" selected="true"
+                              toggleGroup="$granularityToggle" styleClass="filter-option, filter-option-history"/>
+                <ToggleButton fx:id="yearTab" text="%Year"
+                              toggleGroup="$granularityToggle" styleClass="filter-option, filter-option-history"/>
+                <ToggleButton fx:id="allTab" text="%All_time"
+                              toggleGroup="$granularityToggle" styleClass="filter-option, filter-option-history"/>
+            </HBox>
+
+            <ComboBox fx:id="yearCombo"
+                      styleClass="attendance-date-combo"
+                      prefWidth="96"/>
+
+            <ComboBox fx:id="monthCombo"
+                      styleClass="attendance-date-combo"
+                      prefWidth="140"/>
+
+            <ComboBox fx:id="dayCombo"
+                      styleClass="attendance-date-combo"
+                      prefWidth="78"/>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Button fx:id="confirmButton"
+                    styleClass="pill-action-button, pill-action-primary">
+                <graphic>
+                    <HBox spacing="8" alignment="CENTER">
+                        <FontIcon iconLiteral="fas-check"
+                                  styleClass="pill-icon-primary"/>
+                        <Label text="%Confirm"
+                               styleClass="pill-label-primary"/>
+                    </HBox>
+                </graphic>
+            </Button>
+        </HBox>
+
+        <!-- Check-in list, populated by AttendanceController on open and on
+             every Confirm. Wrapped in a bordered/elevated frame so the table
+             reads as an anchored panel (matching the Members screen). -->
+        <StackPane fx:id="listPane" styleClass="attendance-table-frame" VBox.vgrow="ALWAYS">
+            <TableView fx:id="attendanceTable"
+                       styleClass="attendance-table, attendance-view-table"
+                       prefHeight="640">
+
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+
+                <columns>
+                    <TableColumn fx:id="memberColumn" text="%Member" prefWidth="560"
+                                 sortable="false" styleClass="attendance-member-header-group"/>
+                    <TableColumn fx:id="whenColumn" text="%Check-in_Time" prefWidth="430"
+                                 sortable="false" styleClass="attendance-when-header-group"/>
+                </columns>
+
+            </TableView>
+        </StackPane>
+
+        <!-- Check-in statistics: a bar chart (Day / Month / Year), built by
+             AttendanceController into statsSlot. -->
+        <VBox fx:id="statsPane" styleClass="payments-table-frame, payments-stats-pane" spacing="0"
+              VBox.vgrow="ALWAYS" visible="false" managed="false">
+            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="payments-stats-head">
+                <VBox spacing="3">
+                    <Label fx:id="statsTitleLabel" styleClass="payments-stats-title"/>
+                    <Label fx:id="patternLabel" styleClass="payments-stats-pattern"
+                           visible="false" managed="false"/>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="statsHintLabel" styleClass="payments-stats-hint"/>
+            </HBox>
+            <StackPane fx:id="statsSlot" VBox.vgrow="ALWAYS"/>
+        </VBox>
+
+    </VBox>
+
+</ScrollPane>

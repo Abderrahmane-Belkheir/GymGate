@@ -1,0 +1,38 @@
+.cta {
+  border-top: 1px solid var(--line-soft);
+  background:
+    radial-gradient(680px 420px at 18% 110%, var(--signal-wash), transparent 60%),
+    var(--ink);
+}
+
+.cta-box {
+  max-width: 720px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.cta-heading {
+  margin-top: 0.3em;
+}
+
+.cta-lede {
+  margin: 1.4rem auto 0;
+  max-width: 50ch;
+}
+
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.4rem;
+}
+
+.cta-email {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.cta-email:hover {
+  color: var(--signal-strong);
+}

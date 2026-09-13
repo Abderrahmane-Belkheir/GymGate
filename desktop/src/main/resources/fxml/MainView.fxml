@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.GymGate.UI.controller.MainController"
+            styleClass="app-root">
+
+    <left>
+        <fx:include source="Sidebar.fxml" fx:id="sidebar"/>
+    </left>
+
+    <top>
+        <fx:include source="Header.fxml" fx:id="header"/>
+    </top>
+
+    <center>
+        <!-- Populated by MainController via NavigationManager: pages are
+             loaded once, cached, and swapped in here. Home is shown on startup. -->
+        <StackPane fx:id="contentArea"/>
+    </center>
+
+</BorderPane>

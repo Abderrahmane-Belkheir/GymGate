@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<!-- Backgrounds/surfaces on this screen use the extra "members-page-*" /
+     "members-*" classes layered on top of the shared "home-scroll" /
+     "home-root" base, so Home/Plans/Attendance/Payments/Settings keep
+     their existing plain-white look untouched. -->
+<ScrollPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.GymGate.UI.controller.MembersController"
+            fx:id="membersScroll"
+            styleClass="home-scroll, members-page-scroll" fitToWidth="true" fitToHeight="true"
+            hbarPolicy="NEVER">
+  <StackPane fx:id="pageStack" alignment="TOP_LEFT">
+    <VBox fx:id="listView" styleClass="home-root, members-page-root" spacing="12">
+        <padding><Insets top="20" right="28" bottom="24" left="28"/></padding>
+
+        <!-- Title on the left; Gender/Status filters and the live member count are grouped on
+             the right, filters sitting directly beside the count badge. Two independent filter
+             groups — Gender (Male/Female) and Status (Active/Inactive) — sit together as one
+             "filters" cluster, separated from each other by a small hairline divider so they read
+             as two dimensions, not one row of four buttons. Both share the same generic
+             .filter-group/.filter-option design (height, typography, radius, spacing); only the
+             per-option accent classes differ. A single growing spacer after the title pushes the
+             filters + count group as a whole to the right edge of the header line.
+             Only UI state for now on the Gender side: Male is the default selection but, like
+             Female, does not change the table's contents yet. On the Status side, Active is the
+             default and both options currently resolve to the same
+             MembersController#loadMembers() call as Gender does — genderToggleGroup/
+             statusToggleGroup are injected purely to keep exactly one option selected per group
+             (a real switch, not a deselectable pair); real per-option filtering can be wired in
+             later without touching this markup. -->
+        <HBox alignment="CENTER_LEFT" spacing="12" styleClass="members-page-header">
+            <fx:define>
+                <ToggleGroup fx:id="genderToggleGroup"/>
+                <ToggleGroup fx:id="statusToggleGroup"/>
+            </fx:define>
+            <Region styleClass="members-title-accent"/>
+            <VBox spacing="2">
+                <Label text="%Members" styleClass="page-title"/>
+                <Label text="%View_and_manage_all_gym_members" styleClass="page-subtitle"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <HBox spacing="14" alignment="CENTER" styleClass="filters-cluster">
+                <HBox spacing="0" alignment="CENTER_LEFT" styleClass="filter-group">
+                    <ToggleButton fx:id="genderMaleButton" text="%Male" toggleGroup="$genderToggleGroup" selected="true"
+                                  styleClass="filter-option, filter-option-male"/>
+                    <ToggleButton fx:id="genderFemaleButton" text="%Female" toggleGroup="$genderToggleGroup"
+                                  styleClass="filter-option, filter-option-female"/>
+                </HBox>
+                <Region styleClass="filters-cluster-divider"/>
+                <HBox spacing="0" alignment="CENTER_LEFT" styleClass="filter-group">
+                    <ToggleButton fx:id="statusActiveButton" text="%Active" toggleGroup="$statusToggleGroup" selected="true"
+                                  styleClass="filter-option, filter-option-active"/>
+                    <ToggleButton fx:id="statusInactiveButton" text="%Inactive" toggleGroup="$statusToggleGroup"
+                                  styleClass="filter-option, filter-option-inactive"/>
+                </HBox>
+            </HBox>
+            <Label fx:id="memberCountLabel" styleClass="member-count-badge"/>
+        </HBox>
+
+        <!-- Search by first / last name: Confirm filters the table, Cancel restores the full list. -->
+        <HBox spacing="20" alignment="CENTER_LEFT" styleClass="members-toolbar">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <TextField fx:id="firstNameField" promptText="%First_Name" styleClass="member-search-field" prefWidth="190"/>
+                <TextField fx:id="lastNameField" promptText="%Last_Name" styleClass="member-search-field" prefWidth="190"/>
+            </HBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Button fx:id="confirmButton" styleClass="pill-action-button, pill-action-primary">
+                    <graphic>
+                        <HBox spacing="8" alignment="CENTER">
+                            <FontIcon iconLiteral="fas-search" styleClass="pill-icon-primary"/>
+                            <Label text="%Confirm" styleClass="pill-label-primary"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+                <Button fx:id="cancelButton" styleClass="pill-action-button">
+                    <graphic>
+                        <HBox spacing="8" alignment="CENTER">
+                            <FontIcon iconLiteral="fas-times" styleClass="pill-icon"/>
+                            <Label text="%Cancel" styleClass="pill-label"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+                <Button fx:id="refreshButton" styleClass="pill-action-button">
+                    <graphic>
+                        <HBox spacing="8" alignment="CENTER">
+                            <FontIcon iconLiteral="fas-sync-alt" styleClass="pill-icon"/>
+                            <Label text="%Refresh" styleClass="pill-label"/>
+                        </HBox>
+                    </graphic>
+                </Button>
+            </HBox>
+        </HBox>
+
+        <!-- Member list, populated by MembersController on open and re-filtered on search.
+             Wrapped in a bordered/elevated "frame" surface so the table reads as an anchored
+             panel rather than floating directly on the page background; the frame is purely
+             a visual wrapper (no fx:id) so MembersController's TableView contract is unchanged.
+             Scoped with the extra "members-table" class (on top of the shared "attendance-table"
+             base) so this table can get its own refined header/row treatment without touching
+             the Attendance/Payments tables, which keep the original attendance-table look. -->
+        <StackPane styleClass="members-table-frame" VBox.vgrow="ALWAYS">
+            <TableView fx:id="membersTable" styleClass="attendance-table, members-table" prefHeight="640">
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+                <columns>
+                    <TableColumn fx:id="memberColumn" text="%Member" prefWidth="300" minWidth="230" sortable="false"
+                                 styleClass="members-member-col"/>
+                    <TableColumn fx:id="planColumn" text="%Plan" prefWidth="150" minWidth="120" sortable="false"/>
+                    <TableColumn fx:id="startColumn" text="%Start_Date" prefWidth="120" minWidth="100" sortable="false"/>
+                    <TableColumn fx:id="endColumn" text="%End_Date" prefWidth="120" minWidth="100" sortable="false"/>
+                    <TableColumn fx:id="remainingColumn" text="%Remaining" prefWidth="115" minWidth="95" sortable="false"/>
+                    <TableColumn fx:id="statusColumn" text="%Status" prefWidth="120" minWidth="100" sortable="false"/>
+                    <TableColumn fx:id="actionsColumn" prefWidth="52" minWidth="52" maxWidth="52"
+                                 resizable="false" sortable="false"/>
+                </columns>
+            </TableView>
+        </StackPane>
+
+    </VBox>
+  </StackPane>
+</ScrollPane>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<ScrollPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.GymGate.UI.controller.SettingsController"
+            fitToWidth="true"
+            fitToHeight="true"
+            styleClass="home-scroll">
+
+    <VBox spacing="24" styleClass="home-root">
+
+        <padding>
+            <Insets top="24" right="32" bottom="30" left="32"/>
+        </padding>
+
+        <!-- Header -->
+
+        <VBox spacing="5">
+
+            <Label text="%Settings"
+                   styleClass="page-title"/>
+
+            <Label text="%Customize_GymGate_to_match_your_workflow"
+                   styleClass="page-subtitle"/>
+
+        </VBox>
+
+        <!-- Cards: a single vertical stack, capped to a comfortable reading
+             width so they read as a settings list, not full-width banners. -->
+
+        <VBox spacing="16" maxWidth="760">
+
+            <!-- Account -->
+
+            <StackPane fx:id="accountCard"
+                       maxWidth="Infinity"
+                       prefHeight="118"
+                       styleClass="settings-card">
+
+                <HBox spacing="18" alignment="CENTER_LEFT">
+
+                    <FontIcon iconLiteral="fas-user-circle"
+                              styleClass="settings-icon"/>
+
+                    <VBox spacing="6">
+
+                        <Label text="%Gym_Information"
+                               styleClass="settings-title"/>
+
+                        <Label text="%Name_And_Logo"
+                               wrapText="true"
+                               styleClass="settings-description"/>
+
+                    </VBox>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <FontIcon iconLiteral="fas-angle-right"
+                              styleClass="settings-arrow"/>
+
+                </HBox>
+
+            </StackPane>
+
+            <!-- Language -->
+
+            <StackPane fx:id="languageCard"
+                       maxWidth="Infinity"
+                       prefHeight="118"
+                       styleClass="settings-card">
+
+                <HBox spacing="18" alignment="CENTER_LEFT">
+
+                    <FontIcon iconLiteral="fas-language"
+                              styleClass="settings-icon"/>
+
+                    <VBox spacing="6">
+
+                        <Label text="%Language"
+                               styleClass="settings-title"/>
+
+                        <Label text="%Choose_the_application's_display_language"
+                               wrapText="true"
+                               styleClass="settings-description"/>
+
+                    </VBox>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <FontIcon iconLiteral="fas-angle-right"
+                              styleClass="settings-arrow"/>
+
+                </HBox>
+
+            </StackPane>
+
+            <!-- WhatsApp -->
+
+            <StackPane fx:id="whatsappCard"
+                       maxWidth="Infinity"
+                       prefHeight="118"
+                       styleClass="settings-card">
+
+                <HBox spacing="18" alignment="CENTER_LEFT">
+
+                    <FontIcon iconLiteral="fab-whatsapp"
+                              styleClass="settings-icon"/>
+
+                    <VBox spacing="6">
+
+                        <Label text="%WhatsApp"
+                               styleClass="settings-title"/>
+
+                        <Label text="%WhatsApp_reminders_description"
+                               wrapText="true"
+                               styleClass="settings-description"/>
+
+                    </VBox>
+
+                    <Region HBox.hgrow="ALWAYS"/>
+
+                    <ToggleButton fx:id="whatsappToggle"
+                                  styleClass="setting-toggle"/>
+
+                </HBox>
+
+            </StackPane>
+
+        </VBox>
+
+    </VBox>
+
+</ScrollPane>

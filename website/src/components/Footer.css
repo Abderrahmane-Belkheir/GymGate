@@ -1,0 +1,33 @@
+.footer {
+  border-top: 1px solid var(--line-soft);
+  background: var(--ink-raised);
+  padding-block: 2.6rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+}
+
+.footer-note {
+  color: var(--muted-2);
+  font-size: 0.85rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-copyright {
+  color: var(--muted-2);
+}

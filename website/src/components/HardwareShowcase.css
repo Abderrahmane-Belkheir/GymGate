@@ -1,0 +1,90 @@
+.hw {
+  background: var(--ink-raised);
+  border-top: 1px solid var(--line-soft);
+}
+
+.hw-intro {
+  max-width: 620px;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.hw-intro h2 {
+  margin-top: 0.4em;
+}
+
+.hw-lede {
+  margin-top: 1.2rem;
+}
+
+.hw-scroller {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.hw-sticky-col {
+  position: relative;
+}
+
+.hw-sticky {
+  position: sticky;
+  top: 110px;
+  padding-bottom: 2rem;
+}
+
+.hw-art-frame {
+  position: relative;
+  max-width: 260px;
+  margin-inline: auto;
+  padding: 1.5rem 2rem;
+}
+
+.hw-active-tag {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.hw-steps-col {
+  display: flex;
+  flex-direction: column;
+  gap: 30vh;
+  padding-bottom: 30vh;
+}
+
+.hw-step {
+  max-width: 440px;
+  opacity: 0.4;
+  transition: opacity 0.4s var(--ease-out);
+}
+
+.hw-step-active {
+  opacity: 1;
+}
+
+.hw-step-tag {
+  margin-bottom: 0.8rem;
+}
+
+.hw-step-body {
+  margin-top: 0.9rem;
+}
+
+@media (max-width: 860px) {
+  .hw-scroller {
+    grid-template-columns: 1fr;
+  }
+
+  .hw-sticky {
+    position: static;
+    margin-bottom: 2rem;
+  }
+
+  .hw-steps-col {
+    gap: 3rem;
+    padding-bottom: 0;
+  }
+
+  .hw-step {
+    opacity: 1;
+  }
+}

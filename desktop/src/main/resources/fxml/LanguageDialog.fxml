@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<!--
+  Language picker card, opened from the "Language" settings card
+  (SettingsController.openLanguage()). Still uses the existing
+  .language-picker-card / .language-picker-title / .language-picker-row
+  classes (now restyled to look less flat, see styles.css), plus
+  .dialog-close-btn / .dialog-close-icon for the close button.
+
+  Each row is now an HBox (icon + label) instead of a bare Label, so
+  there's a visual anchor per row; LanguageDialogController wires the
+  clicks + confirm + apply/restart on the row itself.
+-->
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.GymGate.UI.controller.LanguageDialogController"
+           style="-fx-background-color: transparent;">
+
+    <padding>
+        <Insets top="36" right="36" bottom="36" left="36"/>
+    </padding>
+
+    <VBox styleClass="language-picker-card" spacing="6" maxWidth="270">
+
+        <HBox alignment="CENTER_LEFT">
+            <children>
+                <Label text="%Choose_Language" styleClass="language-picker-title"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <Button fx:id="closeButton" styleClass="dialog-close-btn" focusTraversable="false">
+                    <graphic>
+                        <FontIcon iconLiteral="fas-times" styleClass="dialog-close-icon"/>
+                    </graphic>
+                </Button>
+            </children>
+        </HBox>
+
+        <Label text="%Select_the_language_you_want_to_use" styleClass="panel-subtitle" wrapText="true"/>
+
+        <VBox spacing="4">
+            <children>
+
+                <HBox fx:id="englishOption" spacing="12" alignment="CENTER_LEFT"
+                      styleClass="language-picker-row" maxWidth="Infinity">
+                    <children>
+                        <FontIcon iconLiteral="fas-globe-americas" styleClass="language-picker-row-icon"/>
+                        <Label text="%English" styleClass="language-picker-row-label"/>
+                    </children>
+                </HBox>
+
+                <HBox fx:id="frenchOption" spacing="12" alignment="CENTER_LEFT"
+                      styleClass="language-picker-row" maxWidth="Infinity">
+                    <children>
+                        <FontIcon iconLiteral="fas-globe-europe" styleClass="language-picker-row-icon"/>
+                        <Label text="%French" styleClass="language-picker-row-label"/>
+                    </children>
+                </HBox>
+
+                <HBox fx:id="arabicOption" spacing="12" alignment="CENTER_LEFT"
+                      styleClass="language-picker-row" maxWidth="Infinity">
+                    <children>
+                        <FontIcon iconLiteral="fas-globe-asia" styleClass="language-picker-row-icon"/>
+                        <Label text="%Arabic" styleClass="language-picker-row-label"/>
+                    </children>
+                </HBox>
+
+            </children>
+        </VBox>
+
+    </VBox>
+
+</StackPane>

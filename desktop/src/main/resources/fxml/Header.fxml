@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.GymGate.UI.controller.HeaderController"
+      fx:id="headerRoot"
+      styleClass="app-header" alignment="CENTER_LEFT" spacing="16">
+
+    <padding><Insets top="10" right="28" bottom="10" left="20"/></padding>
+
+    <!-- Logo, replacing the old "Live Check-In" title/subtitle.
+         requestedHeight caps the decode at ~2x the display size: the source
+         PNG is 1524x1024 (a ~6 MB decoded pixel buffer if loaded as-is), but
+         it's only ever shown 105 px tall in this always-visible header. -->
+    <ImageView fitHeight="105" preserveRatio="true" smooth="true">
+        <Image url="@../images/logo.png" requestedWidth="0" requestedHeight="220" preserveRatio="true" smooth="true"/>
+    </ImageView>
+
+    <Region HBox.hgrow="ALWAYS"/>
+
+    <VBox alignment="CENTER_RIGHT">
+        <Label fx:id="clockLabel" text="09:35:01 PM" styleClass="header-clock"/>
+        <Label fx:id="dateLabel" text="Friday, July 17" styleClass="header-date"/>
+    </VBox>
+
+    <ToggleButton fx:id="cameraVisibilityToggle" styleClass="header-notification-btn" selected="true">
+        <graphic><FontIcon fx:id="cameraVisibilityIcon" iconLiteral="fas-eye" styleClass="header-icon"/></graphic>
+    </ToggleButton>
+
+    <StackPane fx:id="notificationBell" styleClass="header-notification-btn">
+        <FontIcon iconLiteral="fas-bell" styleClass="header-icon"/>
+        <StackPane fx:id="notificationDot" styleClass="notification-dot" StackPane.alignment="TOP_RIGHT"/>
+    </StackPane>
+
+<!--    <HBox alignment="CENTER_LEFT" spacing="10" styleClass="header-user">-->
+<!--        <StackPane styleClass="header-avatar">-->
+<!--            <Label text="SC" styleClass="header-avatar-label"/>-->
+<!--        </StackPane>-->
+<!--        <VBox>-->
+<!--            <Label text="Sarah Chen" styleClass="header-user-name"/>-->
+<!--            <Label text="Receptionist" styleClass="header-user-role"/>-->
+<!--        </VBox>-->
+<!--        <FontIcon iconLiteral="fas-chevron-down" styleClass="header-chevron"/>-->
+<!--    </HBox>-->
+
+    <!-- Custom minimize/maximize/close buttons injected by HeaderController,
+         since the primary Stage is UNDECORATED and has no native title bar. -->
+    <HBox fx:id="windowControlsContainer" alignment="CENTER_RIGHT"/>
+</HBox>

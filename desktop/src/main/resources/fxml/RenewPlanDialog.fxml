@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.GymGate.UI.controller.RenewPlanController"
+      fx:id="dialogRoot"
+      styleClass="register-dialog-card"
+      prefWidth="360" maxWidth="360" spacing="4">
+
+    <padding><Insets top="28" right="28" bottom="24" left="28"/></padding>
+
+    <HBox alignment="CENTER_LEFT">
+        <StackPane styleClass="icon-tile-green-soft" prefWidth="44" prefHeight="44"
+                   minWidth="44" minHeight="44" maxWidth="44" maxHeight="44">
+            <FontIcon iconLiteral="fas-sync-alt" styleClass="icon-tile-glyph" iconSize="18"/>
+        </StackPane>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="closeButton" styleClass="dialog-close-btn">
+            <graphic><FontIcon iconLiteral="fas-times" styleClass="dialog-close-icon"/></graphic>
+        </Button>
+    </HBox>
+
+    <Label text="Renew Membership" styleClass="dialog-title">
+        <VBox.margin><Insets top="16"/></VBox.margin>
+    </Label>
+
+    <Label fx:id="dialogSubtitleLabel" text="%Select_a_new_plan_for_this_member"
+           styleClass="dialog-subtitle" wrapText="true">
+        <VBox.margin><Insets top="6" bottom="20"/></VBox.margin>
+    </Label>
+
+    <VBox fx:id="planListContainer" spacing="10"/>
+
+    <Button fx:id="confirmRenewButton" styleClass="pill-action-button, pill-action-primary" maxWidth="Infinity">
+        <graphic>
+            <HBox spacing="10" alignment="CENTER">
+                <FontIcon iconLiteral="fas-check-circle" styleClass="pill-icon-primary"/>
+                <Label text="%Confirm_Renewal" styleClass="pill-label-primary"/>
+            </HBox>
+        </graphic>
+        <VBox.margin><Insets top="16"/></VBox.margin>
+    </Button>
+
+    <Button fx:id="cancelButton" styleClass="dialog-cancel-button" maxWidth="Infinity">
+        <graphic>
+            <HBox spacing="10" alignment="CENTER">
+                <FontIcon iconLiteral="fas-arrow-left" styleClass="dialog-cancel-icon"/>
+                <Label text="%Cancel" styleClass="dialog-cancel-label"/>
+            </HBox>
+        </graphic>
+        <VBox.margin><Insets top="12"/></VBox.margin>
+    </Button>
+
+</VBox>

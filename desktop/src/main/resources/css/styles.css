@@ -1,0 +1,4116 @@
+{
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+    /* Palette */
+    -color-bg:              #F2F4F8;
+    -color-sidebar:          #0E1526;
+    -color-sidebar-hover:    #1B2438;
+    -color-sidebar-active:   #2F6BFF;
+    -color-sidebar-text:     #9AA5B8;
+    -color-sidebar-text-dim: #6B7688;
+    -color-white:            #FFFFFF;
+    -color-border:           #E6E9F0;
+    -color-text-dark:        #1B2437;
+    -color-text-muted:       #8993A6;
+    -color-blue:             #2F6BFF;
+    -color-blue-soft:        #E7EEFF;
+    -color-green:            #16A34A;
+    -color-green-soft:       #E4F6EA;
+    -color-orange:           #F59E0B;
+    -color-orange-soft:      #FDF1DE;
+    -color-red:              #EF4444;
+    -color-red-soft:         #FDE8E8;
+}
+
+.app-root {
+    -fx-background-color: -color-bg;
+}
+
+/* ===================== SIDEBAR ===================== */
+
+.sidebar {
+    -fx-background-color: -color-sidebar;
+}
+
+.sidebar-brand-icon {
+    -fx-icon-color: -color-white;
+    -fx-icon-size: 18;
+}
+
+/* Circular gym badge next to the gym name (logo or fallback glyph). */
+.sidebar-brand-logo {
+    -fx-background-color: -color-sidebar-hover;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-border-color: rgba(255, 255, 255, 0.14);
+    -fx-border-width: 1;
+}
+
+.sidebar-brand-title {
+    -fx-text-fill: -color-white;
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+}
+
+.sidebar-brand-subtitle {
+    -fx-text-fill: -color-sidebar-text-dim;
+    -fx-font-size: 11px;
+}
+
+.sidebar-nav {
+    -fx-background-color: transparent;
+}
+
+.sidebar-nav-item {
+    -fx-background-color: transparent;
+    -fx-background-radius: 10;
+    -fx-padding: 11 14 11 14;
+    -fx-cursor: hand;
+}
+
+.sidebar-nav-item:hover {
+    -fx-background-color: -color-sidebar-hover;
+}
+
+.sidebar-nav-item:selected {
+    -fx-background-color: -color-sidebar-active;
+}
+
+.sidebar-nav-icon {
+    -fx-icon-color: -color-sidebar-text;
+    -fx-icon-size: 15;
+}
+
+.sidebar-nav-label {
+    -fx-text-fill: -color-sidebar-text;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+}
+
+.sidebar-nav-item:selected .sidebar-nav-icon {
+    -fx-icon-color: -color-white;
+}
+
+.sidebar-nav-item:selected .sidebar-nav-label {
+    -fx-text-fill: -color-white;
+}
+
+.sidebar-separator .line {
+    -fx-border-color: -color-sidebar-hover;
+    -fx-border-width: 1 0 0 0;
+}
+
+.sidebar-signout {
+    -fx-cursor: hand;
+}
+
+.sidebar-signout-icon {
+    -fx-icon-color: -color-sidebar-text-dim;
+    -fx-icon-size: 14;
+}
+
+.sidebar-signout-label {
+    -fx-text-fill: -color-sidebar-text-dim;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+}
+
+/* ===================== HEADER ===================== */
+
+.app-header {
+    -fx-background-color: -color-sidebar;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+
+.header-title {
+    -fx-text-fill: -color-white;
+    -fx-font-size: 17px;
+    -fx-font-weight: 700;
+}
+
+.header-subtitle {
+    -fx-text-fill: -color-sidebar-text;
+    -fx-font-size: 12px;
+}
+
+.header-clock {
+    -fx-text-fill: -color-white;
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+}
+
+.header-date {
+    -fx-text-fill: -color-sidebar-text;
+    -fx-font-size: 11px;
+}
+
+.header-notification-btn {
+    -fx-background-color: -color-sidebar-hover;
+    -fx-background-radius: 999;
+    -fx-min-width: 38;
+    -fx-min-height: 38;
+    -fx-max-width: 38;
+    -fx-max-height: 38;
+    -fx-cursor: hand;
+}
+
+.header-icon {
+    -fx-icon-color: -color-white;
+    -fx-icon-size: 15;
+}
+
+.notification-dot {
+    -fx-background-color: -color-red;
+    -fx-background-radius: 999;
+    -fx-min-width: 8;
+    -fx-min-height: 8;
+    -fx-max-width: 8;
+    -fx-max-height: 8;
+    -fx-translate-x: -3;
+    -fx-translate-y: 3;
+}
+
+.header-user {
+    -fx-cursor: hand;
+}
+
+.header-avatar {
+    -fx-background-color: -color-blue;
+    -fx-background-radius: 999;
+    -fx-min-width: 36;
+    -fx-min-height: 36;
+    -fx-max-width: 36;
+    -fx-max-height: 36;
+}
+
+.header-avatar-label {
+    -fx-text-fill: -color-white;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+}
+
+.header-user-name {
+    -fx-text-fill: -color-white;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+}
+
+.header-user-role {
+    -fx-text-fill: -color-sidebar-text;
+    -fx-font-size: 11px;
+}
+
+.header-chevron {
+    -fx-icon-color: -color-sidebar-text;
+    -fx-icon-size: 11;
+}
+
+/* ---- Custom title-bar replacement (window is UNDECORATED) ---- */
+
+.window-controls {
+    -fx-padding: 0 0 0 8;
+}
+
+.window-btn, .window-btn-close {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8;
+    -fx-min-width: 32;
+    -fx-min-height: 32;
+    -fx-max-width: 32;
+    -fx-max-height: 32;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+}
+
+.window-btn:hover {
+    -fx-background-color: -color-sidebar-hover;
+}
+
+.window-btn-close:hover {
+    -fx-background-color: -color-red;
+}
+
+.window-btn-icon {
+    -fx-icon-color: -color-text-muted;
+    -fx-icon-size: 12;
+}
+
+.window-btn-close:hover .window-btn-icon {
+    -fx-icon-color: -color-white;
+}
+
+/* ===================== HOME CONTENT ===================== */
+
+.home-scroll, .home-scroll > .viewport {
+    -fx-background-color: -color-bg;
+}
+
+.home-scroll .scroll-bar:vertical {
+    -fx-pref-width: 10;
+}
+
+.home-root {
+    -fx-background-color: -color-bg;
+}
+
+/* ---- Home-only page tint: same deepened neutral background used behind
+        the Members screen's cards, so white panels here read as distinct
+        layered surfaces instead of blending into a flat page. Scoped so
+        Attendance/Payments/Plans/Settings (still on the plain .home-root
+        white) are unaffected. ---- */
+.home-page-scroll,
+.home-page-scroll > .viewport {
+    -fx-background-color: #E4E9F1;
+}
+
+.home-page-root {
+    -fx-background-color: #E4E9F1;
+}
+
+/* ---- Pill action buttons (top action bar, mutually-exclusive ToggleButtons) ---- */
+
+.pill-action-button {
+    -fx-background-color: -color-white;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 13 20 13 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.05), 6, 0, 0, 2);
+}
+
+.pill-action-button:hover {
+    -fx-border-color: -color-blue;
+}
+
+.pill-action-button:selected {
+    -fx-background-color: -color-blue;
+    -fx-border-color: -color-blue;
+    -fx-effect: dropshadow(gaussian, rgba(47,107,255,0.35), 12, 0, 0, 4);
+}
+/* Delete button variant */
+
+.pill-action-danger {
+    -fx-border-color: #FECACA;
+}
+
+.pill-action-danger:hover {
+    -fx-background-color: #FEF2F2;
+    -fx-border-color: #F87171;
+}
+
+.pill-action-danger .pill-icon-primary {
+    -fx-icon-color: #DC2626;
+}
+
+.pill-action-danger .pill-label-primary {
+    -fx-text-fill: #DC2626;
+}
+.pill-icon {
+    -fx-icon-color: -color-blue;
+    -fx-icon-size: 14;
+}
+
+.pill-label {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+}
+
+.pill-action-button:selected .pill-icon {
+    -fx-icon-color: -color-white;
+}
+
+.pill-action-button:selected .pill-label {
+    -fx-text-fill: -color-white;
+}
+
+/* ---- Pill "primary" variant (standalone always-blue buttons, e.g. dialog Proceed) ---- */
+
+.pill-action-primary {
+    -fx-background-color: -color-blue;
+    -fx-border-color: -color-blue;
+    -fx-effect: dropshadow(gaussian, rgba(47,107,255,0.35), 12, 0, 0, 4);
+}
+
+.pill-icon-primary {
+    -fx-icon-color: -color-white;
+    -fx-icon-size: 14;
+}
+
+.pill-label-primary {
+    -fx-text-fill: -color-white;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+}
+
+/* ---- Generic panel card ----
+   Same white-card + hairline-border + restrained-shadow language as the
+   Members screen's surfaces (.members-table-frame etc.) — radius 12,
+   -color-border, a soft low-spread shadow — so Home reads as the same
+   product rather than a separate, flatter treatment. ---- */
+
+.panel-card {
+    -fx-background-color: -color-white;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.05), 10, 0, 0, 3);
+}
+
+.panel-title {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: -0.1px;
+}
+
+.panel-subtitle {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 11px;
+}
+
+/* Home's "Today's Statistics" header only — LanguageDialog also uses the
+   shared .panel-subtitle class and must keep its own 11px. */
+.panel-card .panel-subtitle {
+    -fx-font-size: 12px;
+}
+
+.realtime-chip {
+    -fx-background-color: -color-bg;
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999;
+    -fx-padding: 5 12 5 12;
+}
+
+/* Panel-wide "refresh every tile" button next to the Real-time chip. */
+.stats-refresh-button {
+    -fx-background-color: -color-bg;
+    -fx-background-radius: 999;
+    -fx-min-width: 28;
+    -fx-min-height: 28;
+    -fx-max-width: 28;
+    -fx-max-height: 28;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.stats-refresh-button:hover {
+    -fx-background-color: -color-blue-soft;
+}
+
+.stats-refresh-button:hover .stats-refresh-icon {
+    -fx-icon-color: -color-blue;
+}
+
+.stats-refresh-icon {
+    -fx-icon-color: -color-text-muted;
+    -fx-icon-size: 13;
+}
+
+.view-all-link {
+    -fx-text-fill: -color-blue;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-cursor: hand;
+}
+
+/* ---- Camera panel ---- */
+
+.camera-panel {
+    -fx-background-color: -color-sidebar;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.10), 18, 0, 0, 6);
+}
+
+.camera-top-bar {
+    -fx-background-color: rgba(14, 21, 38, 0.55);
+    -fx-background-radius: 20 20 0 0;
+}
+
+.live-dot {
+    -fx-icon-color: -color-red;
+    -fx-icon-size: 8;
+}
+
+.live-text {
+    -fx-text-fill: -color-white;
+    -fx-font-size: 11px;
+    -fx-font-weight: 800;
+}
+
+.camera-meta-text {
+    -fx-text-fill: -color-sidebar-text;
+    -fx-font-size: 12px;
+}
+
+.camera-meta-icon {
+    -fx-icon-color: -color-sidebar-text;
+    -fx-icon-size: 13;
+}
+
+.camera-feed-area {
+    -fx-background-color: #131C33;
+    -fx-min-height: 340;
+    -fx-pref-height: 400;
+}
+
+.scan-status-label {
+    -fx-text-fill: rgba(255,255,255,0.55);
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+}
+
+.scan-bracket {
+    -fx-stroke: -color-blue;
+    -fx-stroke-width: 3;
+    -fx-fill: transparent;
+    -fx-stroke-line-cap: round;
+    -fx-stroke-line-join: round;
+}
+
+.camera-bottom-bar {
+    -fx-background-color: rgba(14, 21, 38, 0.55);
+    -fx-background-radius: 0 0 20 20;
+}
+
+.camera-bottom-title {
+    -fx-text-fill: -color-white;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+}
+
+.camera-bottom-subtitle {
+    -fx-text-fill: -color-sidebar-text;
+    -fx-font-size: 11px;
+}
+
+/* ---- Icon tiles (reused across stat cards / notifications / camera) ---- */
+
+.icon-tile {
+    -fx-background-radius: 12;
+    -fx-min-width: 40;
+    -fx-min-height: 40;
+    -fx-max-width: 40;
+    -fx-max-height: 40;
+}
+
+.icon-tile-blue {
+    -fx-background-color: -color-blue-soft;
+}
+.icon-tile-blue .icon-tile-glyph {
+    -fx-icon-color: -color-blue;
+}
+
+.icon-tile-green {
+    -fx-background-color: -color-green-soft;
+}
+.icon-tile-green .icon-tile-glyph {
+    -fx-icon-color: -color-green;
+}
+
+.icon-tile-orange {
+    -fx-background-color: -color-orange-soft;
+}
+.icon-tile-orange .icon-tile-glyph {
+    -fx-icon-color: -color-orange;
+}
+
+.icon-tile-blue-soft {
+    -fx-background-color: rgba(255,255,255,0.08);
+    -fx-min-width: 34;
+    -fx-min-height: 34;
+    -fx-max-width: 34;
+    -fx-max-height: 34;
+}
+.icon-tile-blue-soft .icon-tile-glyph {
+    -fx-icon-color: -color-blue;
+}
+
+.icon-tile-green-soft {
+    -fx-background-color: -color-green-soft;
+    -fx-min-width: 34;
+    -fx-min-height: 34;
+    -fx-max-width: 34;
+    -fx-max-height: 34;
+}
+.icon-tile-green-soft .icon-tile-glyph {
+    -fx-icon-color: -color-green;
+}
+
+.icon-tile-orange-soft {
+    -fx-background-color: -color-orange-soft;
+    -fx-min-width: 34;
+    -fx-min-height: 34;
+    -fx-max-width: 34;
+    -fx-max-height: 34;
+}
+.icon-tile-orange-soft .icon-tile-glyph {
+    -fx-icon-color: -color-orange;
+}
+
+/* ---- Stat cards ---- */
+
+
+
+ .stat-card {
+     -fx-background-color: -color-white;
+     -fx-background-radius: 12;
+     -fx-border-color: -color-border;
+     -fx-border-radius: 12;
+     -fx-border-width: 1;
+     -fx-padding: 18;
+     -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.05), 10, 0, 0, 3);
+ }
+
+ .stat-card:hover {
+     -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.10), 16, 0, 0, 6);
+     -fx-translate-y: -1;
+ }
+
+ .stat-value {
+     -fx-text-fill: -color-text-dark;
+     -fx-font-size: 26px;
+     -fx-font-weight: 800;
+     -fx-letter-spacing: -0.3px;
+ }
+
+ .stat-label {
+     -fx-text-fill: #55607A;
+     -fx-font-size: 11px;
+     -fx-font-weight: 700;
+     -fx-letter-spacing: 0.5px;
+ }
+
+ .stat-card-wide {
+     -fx-alignment: center;
+     -fx-background-radius: 12;
+     -fx-border-radius: 12;
+ }
+
+ /* A stat card that drills open into the list of members behind its number. */
+ .stat-card-clickable:hover {
+     -fx-border-color: -color-blue;
+ }
+
+ /* Corner control revealed by StatCard#setOnRefresh() — recomputes just that
+    tile's number on demand. Quiet at rest, only visible while the card is
+    hovered, so it never competes with the value itself. */
+ .stat-card-refresh-button {
+     -fx-background-color: transparent;
+     -fx-background-radius: 999;
+     -fx-min-width: 24;
+     -fx-min-height: 24;
+     -fx-max-width: 24;
+     -fx-max-height: 24;
+     -fx-padding: 0;
+     -fx-cursor: hand;
+     -fx-opacity: 0;
+ }
+
+ .stat-card:hover .stat-card-refresh-button {
+     -fx-opacity: 1;
+ }
+
+ .stat-card-refresh-button:hover {
+     -fx-background-color: -color-bg;
+ }
+
+ .stat-card-refresh-button:pressed .stat-card-refresh-icon {
+     -fx-icon-color: -color-blue;
+ }
+
+ .stat-card-refresh-icon {
+     -fx-icon-color: -color-text-muted;
+     -fx-icon-size: 12;
+ }
+
+/* ---- Stat card drill-down (the list behind one "Today's Statistics" card) ---- */
+
+.stat-detail-panel {
+    -fx-min-height: 0;
+}
+
+.stat-detail-header {
+    -fx-padding: 0 0 4 0;
+}
+
+.stat-detail-back-button {
+    -fx-background-color: -color-bg;
+    -fx-background-radius: 999;
+    -fx-min-width: 32;
+    -fx-min-height: 32;
+    -fx-max-width: 32;
+    -fx-max-height: 32;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.stat-detail-back-button:hover {
+    -fx-background-color: -color-border;
+}
+
+.stat-detail-back-icon {
+    -fx-icon-color: -color-text-dark;
+    -fx-icon-size: 14;
+}
+
+.stat-detail-count {
+    -fx-background-color: -color-bg;
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999;
+    -fx-padding: 4 11 4 11;
+}
+
+.stat-detail-scroll,
+.stat-detail-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.stat-detail-scroll {
+    -fx-padding: 0;
+}
+
+/* One flat card holding the members, hairline-separated - a calmer, more
+   modern read than a stack of individually bordered boxes. */
+.stat-detail-list {
+    -fx-background-color: -color-white;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 4 6 4 6;
+}
+
+.stat-detail-divider {
+    -fx-min-height: 1;
+    -fx-pref-height: 1;
+    -fx-max-height: 1;
+    -fx-background-color: -color-border;
+    -fx-opacity: 0.55;
+}
+
+.stat-detail-row {
+    -fx-padding: 12 10 12 10;
+    -fx-background-radius: 8;
+}
+
+.stat-detail-row:hover {
+    -fx-background-color: -color-bg;
+}
+
+.stat-detail-trailing {
+    -fx-background-color: -color-bg;
+    -fx-background-radius: 999;
+    -fx-padding: 3 10 3 10;
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 11.5px;
+    -fx-font-weight: 700;
+}
+
+.stat-detail-empty {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12px;
+    -fx-padding: 24 0 24 0;
+    -fx-alignment: center;
+}
+
+/* ---- Notifications ---- */
+
+.notification-row {
+    -fx-padding: 4 0 4 0;
+}
+
+.notification-title {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+}
+
+.notification-subtitle {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 11px;
+}
+
+/* ---- Member info card ---- */
+
+.member-card {
+    -fx-background-color: -color-white;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.05), 10, 0, 0, 3);
+}
+
+.member-name {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 17px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: -0.2px;
+}
+
+.avatar-photo {
+    -fx-background-color: linear-gradient(to bottom right, #9CA9C2, #64748B);
+    -fx-background-radius: 999;
+    -fx-min-width: 64;
+    -fx-min-height: 64;
+    -fx-max-width: 64;
+    -fx-max-height: 64;
+}
+
+.avatar-initials {
+    -fx-text-fill: -color-white;
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+}
+
+.badge {
+    -fx-background-radius: 999;
+    -fx-padding: 4 10 4 10;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+}
+
+.badge-active {
+    -fx-background-color: -color-green-soft;
+    -fx-text-fill: -color-green;
+}
+
+.badge-danger {
+    -fx-background-color: #FEE2E2;
+    -fx-text-fill: #DC2626;
+}
+
+.language-picker-card {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-padding: 10;
+    -fx-effect: dropshadow(gaussian, rgba(16,24,40,0.20), 24, 0, 0, 8);
+}
+
+.language-picker-title {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #8a8f98;
+    -fx-padding: 4 10 8 10;
+}
+
+.language-picker-row {
+    -fx-padding: 10 16;
+    -fx-background-radius: 8;
+    -fx-font-size: 14px;
+    -fx-text-fill: #1f2430;
+    -fx-cursor: hand;
+}
+
+.language-picker-row:hover {
+    -fx-background-color: #f2f4f7;
+}
+
+
+/* ============================================================
+   Modern confirm dialog (SettingsController.confirmLanguageChange)
+   ============================================================ */
+
+.confirm-dialog-card {
+    -fx-background-color: white;
+    -fx-background-radius: 18;
+    -fx-effect: dropshadow(gaussian, rgba(16,24,40,0.28), 40, 0, 0, 14);
+}
+
+.confirm-dialog-icon {
+    -fx-icon-size: 32;
+    -fx-icon-color: #2f6fed;
+}
+
+.confirm-dialog-title {
+    -fx-font-size: 17px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2430;
+}
+
+.confirm-dialog-message {
+    -fx-font-size: 13px;
+    -fx-text-fill: #5b606b;
+}
+
+.primary-button {
+    -fx-background-color: #2f6fed;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #2559c9;
+}
+
+.secondary-button {
+    -fx-background-color: #f2f4f7;
+    -fx-text-fill: #1f2430;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #e6e8ec;
+}
+
+
+
+
+
+.meta-icon {    -fx-icon-color: -color-text-muted;    -fx-icon-size: 12;}.meta-label {    -fx-text-fill: -color-text-muted;    -fx-font-size: 12px;
+}
+
+.info-chip {
+    -fx-background-color: -color-bg;
+    -fx-background-radius: 12;
+    -fx-padding: 10 16 10 16;
+}
+
+.info-chip-icon {
+    -fx-icon-color: -color-blue;
+    -fx-icon-size: 14;
+}
+
+.info-chip-caption {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 9px;
+    -fx-font-weight: 700;
+}
+
+.info-chip-value {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+}
+
+/* ---- Register Member dialog ---- */
+
+.register-dialog-card {
+    -fx-background-color: -color-sidebar;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 30, 0, 0, 10);
+}
+
+.dialog-title {
+    -fx-text-fill: -color-white;
+    -fx-font-size: 19px;
+    -fx-font-weight: 800;
+}
+
+.dialog-subtitle {
+    -fx-text-fill: -color-sidebar-text;
+    -fx-font-size: 12px;
+}
+
+.dialog-field-label {
+    -fx-text-fill: -color-sidebar-text;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+}
+
+.dialog-field {
+    -fx-background-color: rgba(255,255,255,0.06);
+    -fx-background-radius: 10;
+    -fx-padding: 12 14 12 14;
+    -fx-border-color: rgba(255,255,255,0.08);
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+}
+
+/* Register dialog's Male/Female toggle reuses the Members-screen gender
+   pill styling (.filter-option / .filter-option-male / .filter-option-female)
+   as-is for the blue/pink accent colors, but sits inside a .dialog-field —
+   scoped down a touch here so the two paddings stacked don't make this one
+   field noticeably taller than First Name/Last Name/Phone above it. */
+.dialog-field .filter-option {
+    -fx-padding: 6 14 6 14;
+}
+
+.dialog-field-input {
+    -fx-background-color: transparent;
+    -fx-text-fill: -color-white;
+    -fx-font-size: 13px;
+    -fx-prompt-text-fill: -color-sidebar-text-dim;
+}
+
+.dialog-close-btn {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 4;
+}
+
+.dialog-close-icon {
+    -fx-icon-color: -color-sidebar-text;
+    -fx-icon-size: 14;
+}
+
+/* ---- Dialog Cancel button (secondary pill, matches Proceed button structure) ---- */
+
+.dialog-cancel-button {
+    -fx-background-color: rgba(255,255,255,0.05);
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(255,255,255,0.14);
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 13 20 13 20;
+    -fx-cursor: hand;
+    -fx-effect: none;
+}
+
+.dialog-cancel-button:hover {
+    -fx-background-color: rgba(255,255,255,0.09);
+    -fx-border-color: rgba(255,255,255,0.24);
+}
+
+.dialog-cancel-button:pressed {
+    -fx-background-color: rgba(255,255,255,0.03);
+    -fx-border-color: rgba(255,255,255,0.14);
+}
+
+.dialog-cancel-icon {
+    -fx-icon-color: -color-sidebar-text;
+    -fx-icon-size: 13;
+}
+
+.dialog-cancel-label {
+    -fx-text-fill: -color-sidebar-text;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+}
+
+.dialog-cancel-button:hover .dialog-cancel-icon {
+    -fx-icon-color: -color-white;
+}
+
+.dialog-cancel-button:hover .dialog-cancel-label {
+    -fx-text-fill: -color-white;
+}
+
+.dialog-footer-note {
+    -fx-text-fill: -color-sidebar-text-dim;
+    -fx-font-size: 11px;
+}
+.capture-card {
+    -fx-background-color: #131C33;
+    -fx-background-radius: 16;
+}
+
+.camera-privacy-overlay {
+    -fx-background-color: -color-sidebar;
+    -fx-background-radius: 20;
+}
+
+.privacy-overlay-icon {
+    -fx-icon-color: rgba(255,255,255,0.35);
+    -fx-icon-size: 40;
+}
+
+.privacy-overlay-label {
+    -fx-text-fill: rgba(255,255,255,0.55);
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+}
+
+/* ===================== MEMBERSHIP PLANS PAGE ===================== */
+
+.page-title {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 22px;
+    -fx-font-weight: 800;
+}
+
+.page-subtitle {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 13px;
+}
+
+/* ---- Page background + header card: same tinted-scroll / bordered-header-
+        panel pattern as .members-page-scroll/.members-page-root/
+        .members-page-header, layered on top of the shared .home-scroll/
+        .home-root base so only this screen picks up the tint. ---- */
+
+.plans-page-scroll,
+.plans-page-scroll > .viewport {
+    -fx-background-color: #E4E9F1;
+}
+
+.plans-page-root {
+    -fx-background-color: #E4E9F1;
+}
+
+.plans-page-header {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 13 20 13 20;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.04), 8, 0, 0, 2);
+}
+
+.plans-title-accent {
+    -fx-background-color: -color-blue;
+    -fx-background-radius: 3;
+    -fx-min-width: 4;
+    -fx-max-width: 4;
+    -fx-min-height: 40;
+    -fx-max-height: 40;
+}
+
+.plan-card {
+    -fx-background-color: -color-white;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.05), 10, 0, 0, 3);
+}
+
+.plan-card:hover {
+    -fx-border-color: -color-blue;
+    -fx-effect: dropshadow(gaussian, rgba(47,107,255,0.16), 14, 0, 0, 5);
+    -fx-translate-y: -1;
+}
+
+.plan-name {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+}
+
+.plan-duration {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12px;
+}
+
+.plan-divider .line {
+    -fx-border-color: -color-border;
+    -fx-border-width: 1 0 0 0;
+}
+
+.plan-row-label {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12px;
+}
+
+.plan-row-value {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+}
+
+.plan-price-block {
+    -fx-background-color: -color-blue-soft;
+    -fx-background-radius: 14;
+    -fx-padding: 16;
+}
+
+.plan-price-caption {
+    -fx-text-fill: -color-blue;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+}
+
+.plan-price-value {
+    -fx-text-fill: -color-blue;
+    -fx-font-size: 26px;
+    -fx-font-weight: 800;
+}
+
+.plan-price-currency {
+    -fx-text-fill: -color-blue;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-opacity: 0.75;
+}
+
+/* ── Single-session ("séance") drop-in prices ─────────────────────────── */
+.seance-panel {
+    -fx-border-color: -color-border transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+    -fx-padding: 20 0 0 0;
+}
+.seance-title {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 15px;
+    -fx-font-weight: 800;
+}
+.seance-hint {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12px;
+}
+.seance-price-card {
+    -fx-background-color: -color-white;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 14 16 14 16;
+    -fx-min-width: 172;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.05), 10, 0, 0, 3);
+}
+.seance-cardio-on {
+    -fx-background-color: -color-green-soft;
+    -fx-text-fill: -color-green;
+    -fx-background-radius: 999;
+    -fx-padding: 2 9 2 9;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+}
+.seance-cardio-off {
+    -fx-background-color: #EEF0F4;
+    -fx-text-fill: -color-text-muted;
+    -fx-background-radius: 999;
+    -fx-padding: 2 9 2 9;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+}
+.seance-price-field {
+    -fx-background-color: -color-white;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 6 10 6 10;
+    -fx-font-size: 15px;
+    -fx-font-weight: 800;
+    -fx-text-fill: -color-text-dark;
+}
+.seance-price-field:focused {
+    -fx-border-color: -color-blue;
+}
+.seance-currency {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+}
+.seance-confirm-button {
+    -fx-background-color: -color-blue;
+    -fx-background-radius: 8;
+    -fx-min-width: 30;  -fx-min-height: 30;
+    -fx-max-width: 30;  -fx-max-height: 30;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+.seance-confirm-icon {
+    -fx-icon-color: -color-white;
+    -fx-icon-size: 13;
+}
+.seance-confirm-button:hover { -fx-background-color: derive(-color-blue, -12%); }
+.seance-confirm-button:disabled {
+    -fx-background-color: #E6E9F0;
+    -fx-opacity: 1;
+    -fx-cursor: default;
+}
+.seance-confirm-button:disabled .seance-confirm-icon { -fx-icon-color: #B4BDCC; }
+
+/* ── "Register a single session" picker — dark card, matches Register ── */
+.seance-sale-card {
+    -fx-background-color: -color-sidebar;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 30, 0, 0, 10);
+    -fx-min-width: 380;
+}
+.seance-sale-title {
+    -fx-text-fill: -color-white;
+    -fx-font-size: 19px;
+    -fx-font-weight: 800;
+}
+.seance-sale-column { -fx-min-width: 150; }
+.seance-sale-head-male, .seance-sale-head-female {
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+    -fx-background-radius: 999;
+    -fx-padding: 3 14 3 14;
+}
+.seance-sale-head-male   { -fx-text-fill: #7CA0FF; -fx-background-color: rgba(47,107,255,0.20); }
+.seance-sale-head-female { -fx-text-fill: #F472B6; -fx-background-color: rgba(219,39,119,0.20); }
+.seance-sale-tile {
+    -fx-background-color: rgba(255,255,255,0.06);
+    -fx-border-color: rgba(255,255,255,0.10);
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-padding: 12 14 12 14;
+    -fx-cursor: hand;
+}
+.seance-sale-tile:hover    { -fx-border-color: rgba(124,160,255,0.55); }
+.seance-sale-tile:selected {
+    -fx-background-color: rgba(47,107,255,0.20);
+    -fx-border-color: -color-blue;
+}
+.seance-sale-tile-kind {
+    -fx-text-fill: -color-sidebar-text;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+}
+.seance-sale-tile:selected .seance-sale-tile-kind { -fx-text-fill: #AFC6FF; }
+.seance-sale-tile-price {
+    -fx-text-fill: -color-white;
+    -fx-font-size: 17px;
+    -fx-font-weight: 800;
+}
+
+.seance-sale-confirm {
+    -fx-background-color: -color-blue;
+    -fx-text-fill: -color-white;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 10;
+    -fx-padding: 11 22 11 22;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(47,107,255,0.35), 12, 0, 0, 4);
+}
+.seance-sale-confirm:hover { -fx-background-color: derive(-color-blue, -10%); }
+.seance-sale-cancel {
+    -fx-background-color: rgba(255,255,255,0.06);
+    -fx-text-fill: -color-sidebar-text;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 10;
+    -fx-padding: 11 22 11 22;
+    -fx-cursor: hand;
+}
+.seance-sale-cancel:hover { -fx-background-color: rgba(255,255,255,0.12); -fx-text-fill: -color-white; }
+
+.plan-edit-button {
+    -fx-background-color: #F3F4F6;
+    -fx-text-fill: #374151;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 8;
+    -fx-padding: 5 12;
+    -fx-cursor: hand;
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 8;
+}
+
+.plan-edit-button:hover {
+    -fx-background-color: #E5E7EB;
+}
+
+.plan-delete-button {
+    -fx-background-color: #F9FAFB;
+    -fx-text-fill: #6B7280;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 8;
+    -fx-padding: 5 12;
+    -fx-cursor: hand;
+    -fx-border-color: #E5E7EB;
+    -fx-border-radius: 8;
+}
+
+.plan-delete-button:hover {
+    -fx-background-color: #F3F4F6;
+    -fx-text-fill: #111827;
+}
+.badge-yes {
+    -fx-background-color: -color-green-soft;
+    -fx-text-fill: -color-green;
+}
+
+.badge-no {
+    -fx-background-color: -color-bg;
+    -fx-text-fill: -color-text-muted;
+}
+
+/* ---- Generic dialog card (same look as register-dialog-card, reused
+        by New Plan and any future form dialog, without touching the
+        existing Register Member dialog's styling) ---- */
+
+.dialog-card {
+    -fx-background-color: -color-sidebar;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.45), 30, 0, 0, 10);
+}
+
+.dialog-checkbox {
+    -fx-text-fill: -color-white;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+}
+
+.dialog-checkbox .box {
+    -fx-background-color: rgba(255,255,255,0.06);
+    -fx-border-color: rgba(255,255,255,0.14);
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.dialog-checkbox:selected .box {
+    -fx-background-color: -color-blue;
+    -fx-border-color: -color-blue;
+}
+
+.dialog-checkbox .mark {
+    -fx-background-color: -color-white;
+}
+
+/* ===================== ATTENDANCE PAGE ===================== */
+
+.attendance-date-combo {
+
+    -fx-background-color: -color-white;
+    -fx-background-radius: 12;
+
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+
+    -fx-pref-height: 44;
+
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+
+    -fx-cursor: hand;
+
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.05), 6,0,0,2);
+}
+
+.attendance-date-combo:hover{
+    -fx-border-color: -color-text-muted;
+}
+
+.attendance-date-combo:focused,
+.attendance-date-combo:showing{
+
+    -fx-border-color: #2563eb;
+
+    -fx-effect:dropshadow(
+            gaussian,
+            rgba(37,99,235,.20),
+            10,
+            0,
+            0,
+            0
+    );
+}
+
+.attendance-date-combo > .list-cell{
+
+    -fx-background-color: transparent;
+
+    -fx-padding:0 0 0 14;
+
+    -fx-text-fill:-color-text-dark;
+
+    -fx-font-size:13px;
+
+    -fx-font-weight:600;
+}
+
+.attendance-date-combo > .arrow-button{
+
+    -fx-background-color:transparent;
+
+    -fx-padding:0 12 0 8;
+
+    -fx-background-radius:12;
+}
+
+.attendance-date-combo > .arrow-button > .arrow{
+
+    -fx-background-color:-color-text-muted;
+
+    -fx-scale-x:1.2;
+    -fx-scale-y:1.2;
+}
+.combo-box-popup .list-view{
+
+    -fx-background-color:white;
+
+    -fx-background-radius:12;
+
+    -fx-border-color:-color-border;
+
+    -fx-border-radius:12;
+
+    -fx-padding:6;
+
+    -fx-effect:dropshadow(
+            gaussian,
+            rgba(20,30,60,.15),
+            18,
+            0,
+            0,
+            4
+    );
+}
+
+.combo-box-popup .list-cell{
+
+    -fx-background-color:transparent;
+
+    -fx-text-fill:-color-text-dark;
+
+    -fx-padding:10 16;
+
+    -fx-font-size:13px;
+
+    -fx-font-weight:500;
+
+    -fx-background-radius:8;
+}
+
+.combo-box-popup .list-cell:hover{
+
+    -fx-background-color:-color-bg;
+    -fx-text-fill:-color-text-dark;
+}
+
+.combo-box-popup .list-cell:selected{
+
+    -fx-background-color:#2563eb;
+
+    -fx-text-fill:white;
+}
+
+.attendance-row {
+    -fx-background-color: linear-gradient(to bottom, #FFFFFF 0%, #FBFCFE 100%);
+    -fx-background-radius: 16;
+    -fx-border-color: #DCE2EE;
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-padding: 18 22 18 22;
+    -fx-effect: dropshadow(gaussian, rgba(47,107,255,0.10), 16, 0, 0, 5);
+}
+
+.attendance-avatar {
+    -fx-background-color: -color-blue-soft;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(47,107,255,0.18);
+    -fx-border-radius: 999;
+    -fx-border-width: 1;
+    -fx-min-width: 44;
+    -fx-min-height: 44;
+    -fx-max-width: 44;
+    -fx-max-height: 44;
+}
+
+.attendance-avatar-label {
+    -fx-text-fill: -color-blue;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+}
+
+.attendance-name {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+
+.attendance-plan-chip {
+    -fx-background-color: -color-blue-soft;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(47,107,255,0.16);
+    -fx-border-width: 1;
+    -fx-border-radius: 999;
+    -fx-padding: 4 12 4 12;
+}
+
+.attendance-plan-icon {
+    -fx-icon-color: -color-blue;
+    -fx-icon-size: 6;
+}
+
+.attendance-plan-label {
+    -fx-text-fill: -color-blue;
+    -fx-font-size: 10px;
+    -fx-font-weight: 700;
+}
+
+.attendance-time {
+    -fx-text-fill: -color-blue;
+    -fx-font-size: 15px;
+    -fx-font-weight: 800;
+}
+
+.attendance-table {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-fixed-cell-size: 96;
+}
+
+.attendance-table .column-header-background {
+    -fx-max-height: 0;
+    -fx-pref-height: 0;
+    -fx-min-height: 0;
+    -fx-background-color: transparent;
+}
+
+.attendance-table .column-header {
+    -fx-max-height: 0;
+    -fx-pref-height: 0;
+}
+
+.attendance-table .table-row-cell {
+    -fx-background-color: linear-gradient(to bottom, #FFFFFF 0%, #FBFCFE 100%);
+    -fx-background-radius: 18;
+    -fx-background-insets: 0 0 16 0;
+    -fx-border-color: #DCE2EE;
+    -fx-border-radius: 18;
+    -fx-border-insets: 0 0 16 0;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(47,107,255,0.10), 16, 0, 0, 5);
+}
+
+.attendance-table .table-row-cell:hover {
+    -fx-border-color: -color-blue;
+    -fx-effect: dropshadow(gaussian, rgba(47,107,255,0.20), 20, 0, 0, 8);
+}
+
+.attendance-table .table-row-cell:selected {
+    -fx-background-color: -color-blue-soft;
+    -fx-border-color: -color-blue;
+    -fx-border-width: 1.5;
+}
+
+.attendance-table .table-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0 26 0 26;
+}
+
+.attendance-table .placeholder .label {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 13px;
+}
+
+/* ===================== MEMBERS PAGE ===================== */
+/* ============================================================
+   Member right-click action card (MembersController.MemberCell)
+   ============================================================ */
+
+.member-context-card {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-padding: 6;
+    -fx-effect: dropshadow(gaussian, rgba(16,24,40,0.20), 24, 0, 0, 8);
+}
+
+.member-context-row-highlight {
+    -fx-background-color: #F2F4F7;
+    -fx-background-radius: 8;
+}
+
+.member-context-row-highlight-danger {
+    -fx-background-color: -color-red-soft;
+    -fx-background-radius: 8;
+}
+
+.member-context-icon {
+    -fx-icon-size: 14;
+    -fx-icon-color: -color-text-muted;
+}
+
+.member-context-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-text-fill: -color-text-dark;
+}
+
+.member-context-icon-danger {
+    -fx-icon-size: 14;
+    -fx-icon-color: -color-red;
+}
+
+.member-context-label-danger {
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-text-fill: -color-red;
+}
+.member-context-separator {
+    -fx-padding: 4 6;
+}
+.member-count-badge {
+    -fx-background-color: -color-blue-soft;
+    -fx-text-fill: -color-blue;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999;
+    -fx-padding: 6 14 6 14;
+}
+
+.camera-notification-error {
+    -fx-background-color: rgba(220,53,69,0.95);
+    -fx-background-radius: 8;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 18;
+}
+
+.camera-notification-success {
+    -fx-background-color: rgba(34,197,94,0.95);
+    -fx-background-radius: 8;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 18;
+}
+
+.plan-selection-tile {
+    -fx-background-color: rgba(255,255,255,0.06);
+    -fx-background-radius: 12;
+    -fx-border-color: rgba(255,255,255,0.10);
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+}
+
+.plan-selection-tile:hover {
+    -fx-background-color: rgba(255,255,255,0.10);
+}
+
+.plan-selection-tile:selected {
+    -fx-background-color: -color-blue;
+    -fx-border-color: -color-blue;
+}
+
+.plan-tile-name {
+    -fx-text-fill: -color-white;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+
+.plan-tile-duration {
+    -fx-text-fill: -color-sidebar-text;
+    -fx-font-size: 11px;
+}
+
+.plan-tile-price {
+    -fx-text-fill: -color-white;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+
+.plan-selection-tile:selected .plan-tile-name,
+.plan-selection-tile:selected .plan-tile-duration,
+.plan-selection-tile:selected .plan-tile-price {
+    -fx-text-fill: -color-white;
+}
+
+.chips-scroll {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+.chips-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Plan picker (enrollment + renew): a bounded scroll area so a long plan list
+   scrolls instead of stretching the dialog. Transparent so it blends into the
+   dark dialog card; the thin blue scrollbar comes from the global .scroll-bar. */
+.plan-selection-panel {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+}
+
+.plan-selection-panel > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* A little right padding so tiles don't sit under the scrollbar when it shows. */
+.plan-selection-list {
+    -fx-padding: 0 4 0 0;
+}
+
+.chips-scroll .scroll-bar:horizontal {
+    -fx-pref-height: 6;
+}
+
+.renew-button {
+    -fx-background-color: -color-green-soft;
+    -fx-background-radius: 10;
+    -fx-padding: 10 16 10 16;
+    -fx-cursor: hand;
+}
+
+.renew-button:hover {
+    -fx-background-color: -color-green;
+}
+
+.renew-button-icon {
+    -fx-icon-color: -color-green;
+    -fx-icon-size: 13;
+}
+
+.renew-button-label {
+    -fx-text-fill: -color-green;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+}
+
+.renew-button:hover .renew-button-icon,
+.renew-button:hover .renew-button-label {
+    -fx-icon-color: -color-white;
+    -fx-text-fill: -color-white;
+}
+
+/* ---- Low-confidence "might be this member?" confirmation bar ----
+   Shown on the member card in place of the renew button while a
+   POSSIBLE_MATCH candidate awaits a staff accept/reject (see
+   MemberInfoCard.showPendingCandidate). */
+
+.confirm-situation-label {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+}
+
+.confirm-accept-button, .confirm-reject-button {
+    -fx-background-radius: 999;
+    -fx-min-width: 34;
+    -fx-min-height: 34;
+    -fx-max-width: 34;
+    -fx-max-height: 34;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.confirm-accept-button {
+    -fx-background-color: -color-green-soft;
+}
+
+.confirm-accept-icon {
+    -fx-icon-color: -color-green;
+    -fx-icon-size: 14;
+}
+
+.confirm-accept-button:hover {
+    -fx-background-color: -color-green;
+}
+
+.confirm-accept-button:hover .confirm-accept-icon {
+    -fx-icon-color: -color-white;
+}
+
+.confirm-reject-button {
+    -fx-background-color: -color-red-soft;
+}
+
+.confirm-reject-icon {
+    -fx-icon-color: -color-red;
+    -fx-icon-size: 14;
+}
+
+.confirm-reject-button:hover {
+    -fx-background-color: -color-red;
+}
+
+.confirm-reject-button:hover .confirm-reject-icon {
+    -fx-icon-color: -color-white;
+}
+.settings-card{
+    -fx-background-color:#2A2F3A;
+    -fx-background-radius:18;
+    -fx-padding:22;
+    -fx-cursor:hand;
+
+    -fx-border-color:#3A404D;
+    -fx-border-radius:18;
+
+    -fx-effect:dropshadow(gaussian,
+            rgba(0,0,0,.25),
+            18,0.25,0,4);
+}
+
+.settings-card:hover{
+    -fx-background-color:#323844;
+    -fx-border-color:#5B8CFF;
+}
+
+.settings-title{
+    -fx-font-size:18;
+    -fx-font-weight:bold;
+    -fx-text-fill:white;
+}
+
+.settings-description{
+    -fx-font-size:13;
+    -fx-text-fill:#AEB6C2;
+}
+
+.settings-icon{
+    -fx-icon-color:#5B8CFF;
+    -fx-icon-size:28;
+}
+
+.settings-arrow{
+    -fx-icon-color:#8C94A3;
+    -fx-icon-size:18;
+}
+/* ============================================================
+   REPLACE your existing .language-picker-* block in styles.css
+   with this one (same class names, richer styling).
+   ============================================================ */
+
+.language-picker-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-padding: 14;
+    -fx-border-color: rgba(15,23,42,0.05);
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(16,24,40,0.22), 32, 0, 0, 12);
+}
+
+.language-picker-title {
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-text-fill: -color-text-dark;
+    -fx-padding: 2 6 0 6;
+}
+
+.language-picker-row {
+    -fx-padding: 11 12 11 12;
+    -fx-background-color: transparent;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+.language-picker-row:hover {
+    -fx-background-color: -color-blue-soft;
+}
+
+/* New/additive — the icon + label inside each row (row itself keeps its own class above) */
+.language-picker-row-icon {
+    -fx-icon-color: -color-text-muted;
+    -fx-icon-size: 14;
+}
+
+.language-picker-row-label {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 13.5px;
+    -fx-font-weight: 600;
+}
+
+.language-picker-row:hover .language-picker-row-icon {
+    -fx-icon-color: -color-blue;
+}
+
+.language-picker-row:hover .language-picker-row-label {
+    -fx-text-fill: -color-blue;
+}
+
+
+/* ============================================================
+   REPLACE your existing "Modern confirm dialog" block in styles.css
+   with this one (same class names, richer styling).
+   ============================================================ */
+
+.confirm-dialog-card {
+    -fx-background-color: white;
+    -fx-background-radius: 22;
+    -fx-effect: dropshadow(gaussian, rgba(16,24,40,0.34), 46, 0, 0, 18);
+}
+
+/* New/additive — soft circular backdrop behind the icon */
+.confirm-dialog-icon-badge {
+    -fx-background-color: -color-blue-soft;
+    -fx-background-radius: 999;
+    -fx-min-width: 64;
+    -fx-min-height: 64;
+    -fx-max-width: 64;
+    -fx-max-height: 64;
+}
+
+.confirm-dialog-icon {
+    -fx-icon-size: 30;
+    -fx-icon-color: -color-blue;
+}
+
+.confirm-dialog-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: 800;
+    -fx-text-fill: -color-text-dark;
+}
+
+.confirm-dialog-message {
+    -fx-font-size: 13.5px;
+    -fx-text-fill: -color-text-muted;
+    -fx-line-spacing: 2;
+}
+
+.primary-button {
+    -fx-background-color: -color-blue;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999;
+    -fx-padding: 11 24 11 24;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(47,107,255,0.35), 14, 0, 0, 4);
+}
+
+.primary-button:hover {
+    -fx-background-color: derive(-color-blue, -12%);
+}
+
+.primary-button:pressed {
+    -fx-background-color: derive(-color-blue, -20%);
+}
+
+.secondary-button {
+    -fx-background-color: -color-bg;
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-background-radius: 999;
+    -fx-padding: 11 24 11 24;
+    -fx-cursor: hand;
+}
+
+.secondary-button:hover {
+    -fx-background-color: derive(-color-border, -4%);
+}
+
+/* ============================================================
+   MEMBERS PAGE — premium refinement
+   Scoped to .members-table / .member-* / .row-action-* / .members-toolbar
+   so the Attendance and Payments screens (which still use the plain
+   .attendance-table look) are completely unaffected.
+   ============================================================ */
+
+/* ---- Page surface hierarchy: a slightly cooler/deeper tint behind the
+        page than the white panels sitting on it, so the screen reads as
+        layered surfaces instead of one flat white sheet. Scoped to this
+        screen only — the shared -color-bg token used by every other
+        screen is untouched. ---- */
+
+.members-page-scroll,
+.members-page-scroll > .viewport {
+    -fx-background-color: #E4E9F1;
+}
+
+.members-page-root {
+    -fx-background-color: #E4E9F1;
+}
+
+/* ---- Header: a compact section-header panel (same bordered/elevated
+        surface family as the toolbar and table frame below it — same
+        background tone, border color and radius) so the title/count zone
+        reads as the first panel in one connected stack, not a stray
+        block of text floating above unrelated cards. ---- */
+
+.members-page-header {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 13 20 13 20;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.04), 8, 0, 0, 2);
+}
+
+.members-title-accent {
+    -fx-background-color: -color-blue;
+    -fx-background-radius: 3;
+    -fx-min-width: 4;
+    -fx-max-width: 4;
+    -fx-min-height: 40;
+    -fx-max-height: 40;
+}
+
+/* Scoped (not the shared .page-title/.page-subtitle used by every other
+   screen) — a touch sharper/tighter to match this panel's denser proportions. */
+.members-page-header .page-title {
+    -fx-letter-spacing: -0.2px;
+}
+
+.members-page-header .page-subtitle {
+    -fx-font-size: 12px;
+}
+
+/* ---- Search/filter toolbar: a distinct bordered, softly elevated
+        surface instead of fields floating directly on the page. ---- */
+
+.members-toolbar {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 11 16 11 16;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.04), 8, 0, 0, 2);
+}
+
+/* Fields sit slightly "inset" (page-tint background) against the white
+   toolbar card, so the toolbar's own boundary stays legible instead of
+   the fields blending into an identically-white surface. */
+.member-search-field {
+    -fx-background-color: #E4E9F1;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-pref-height: 40;
+    -fx-padding: 0 14 0 14;
+    -fx-font-size: 13px;
+    -fx-font-weight: 500;
+    -fx-prompt-text-fill: -color-text-muted;
+}
+
+.member-search-field:hover {
+    -fx-border-color: -color-text-muted;
+}
+
+.member-search-field:focused {
+    -fx-border-color: -color-blue;
+    -fx-effect: dropshadow(gaussian, rgba(47,107,255,0.18), 10, 0, 0, 0);
+}
+
+/* ---- Filters (Gender: Male/Female, Status: Active/Inactive): two
+        segmented pills sharing one design system — same inset neutral
+        background family as the search fields, same height/typography/
+        radius/spacing — so they read as one filter language, distinguished
+        only by their semantic accent colors. A hairline divider between
+        the two pills (.filters-cluster-divider) keeps them reading as two
+        independent dimensions rather than one row of four buttons. Every
+        option stays neutral until hovered/selected. ---- */
+
+.filter-group {
+    -fx-background-color: #E4E9F1;
+    -fx-background-radius: 10;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-padding: 3;
+}
+
+.filters-cluster-divider {
+    -fx-background-color: -color-border;
+    -fx-min-width: 1;
+    -fx-max-width: 1;
+    -fx-min-height: 22;
+    -fx-max-height: 22;
+}
+
+.filter-option {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8;
+    -fx-border-width: 0;
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-padding: 8 14 8 14;
+    -fx-cursor: hand;
+}
+
+/* Gender — Male: blue, Female: pink. Selected is a solid, confident fill
+   (the same "strong but refined" treatment as .pill-action-primary
+   elsewhere in the app) so the active option reads clearly at a glance;
+   hover on the non-selected option stays a soft tint. */
+.filter-option-male:hover {
+    -fx-background-color: rgba(47,107,255,0.14);
+    -fx-text-fill: -color-blue;
+}
+
+.filter-option-female:hover {
+    -fx-background-color: rgba(219,39,119,0.14);
+    -fx-text-fill: #DB2777;
+}
+
+.filter-option-male:selected {
+    -fx-background-color: -color-blue;
+    -fx-text-fill: -color-white;
+    -fx-effect: dropshadow(gaussian, rgba(47,107,255,0.35), 8, 0, 0, 2);
+}
+
+.filter-option-female:selected {
+    -fx-background-color: #DB2777;
+    -fx-text-fill: -color-white;
+    -fx-effect: dropshadow(gaussian, rgba(219,39,119,0.30), 8, 0, 0, 2);
+}
+
+/* Status — Active/Inactive reuse the exact tokens the row status pills
+   already use (.badge-active green, .badge-danger red) for consistency
+   between the filter and the data it filters. */
+.filter-option-active:hover {
+    -fx-background-color: rgba(22,163,74,0.10);
+    -fx-text-fill: -color-green;
+}
+
+.filter-option-inactive:hover {
+    -fx-background-color: rgba(220,38,38,0.10);
+    -fx-text-fill: #DC2626;
+}
+
+.filter-option-active:selected {
+    -fx-background-color: -color-green-soft;
+    -fx-text-fill: -color-green;
+}
+
+.filter-option-inactive:selected {
+    -fx-background-color: #FEE2E2;
+    -fx-text-fill: #DC2626;
+}
+
+/* ---- Table frame: anchors the table as a bordered, softly elevated
+        panel instead of rows floating directly on the page background.
+        Zero padding + a matching white background on the frame, header
+        and rows means the frame's own rounded border does the framing
+        without fighting the table's internal (square) row/header
+        backgrounds underneath. ---- */
+
+.members-table-frame {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.05), 10, 0, 0, 3);
+}
+
+/* ---- Refined, visible header (Members only — Attendance/Payments keep
+        their collapsed header). Declared after .attendance-table's rules
+        so it wins the cascade on cells carrying both classes. ---- */
+
+/* A compact, genuinely neutral band (the previous #F4F7FC leaned blue).
+   Separation from the rows comes from two quiet cues rather than weight:
+   the band sits a shade below the row surface (#FAFCFE), and its bottom
+   edge is a touch deeper than the row separators (#D9DEE7 vs the rows'
+   -color-border), so the header reads as a distinct cap without a heavy
+   rule or any colour accent. */
+.members-table .column-header-background {
+    -fx-max-height: 28;
+    -fx-pref-height: 28;
+    -fx-min-height: 28;
+    -fx-background-color: #EFF1F5;
+    -fx-background-radius: 12 12 0 0;
+    -fx-border-color: transparent transparent #D9DEE7 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.members-table .column-header {
+    -fx-max-height: 28;
+    -fx-pref-height: 28;
+    -fx-background-color: transparent;
+}
+
+/* Understated, not shouty: a premium grid header recedes behind the data.
+   A neutral grey a shade deeper than -color-text-muted keeps 11px legible
+   and crisp against the lighter band, without the weight of the earlier
+   12px/800 treatment. */
+.members-table .column-header .label {
+    -fx-text-fill: #55607A;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 0.5px;
+    -fx-padding: 0 22 0 22;
+}
+
+/* Member | Membership boundary in the header — a neutral hairline, the
+   same colour and role as the two dividers inside the rows, so all three
+   read as one quiet structural system instead of blue (which is reserved
+   for action/selection) doing decorative duty. Inset 22px on the right to
+   match the row cell's own 22px padding, so it lands directly above the
+   row-level .member-column-divider rather than at the raw cell edge. */
+.members-table .column-header.member-header-group {
+    -fx-border-color: transparent #D9DEE7 transparent transparent;
+    -fx-border-width: 0 1 0 0;
+    -fx-border-insets: 9 22 9 0;
+}
+
+/* "Member" is inset 78px so the two group labels mirror each other about
+   the table's centre. "Membership" is right-aligned inside statusColumn,
+   whose right edge stops 56px short of the table (the actions column),
+   plus its own 22px inset — so its right edge sits 56 + 22 = 78px in from
+   the table's right edge. Matching that on the left makes the pair exactly
+   symmetric, and it lands where the member's name begins in the rows below
+   (22px inset + 44px avatar + 13px gap ≈ 79px) rather than hard against
+   the avatar. "Membership" itself is untouched. */
+.members-table .column-header.member-header-group .label {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 22 0 78;
+}
+
+/* Membership's header label right-aligns to match the right-aligned
+   Membership/Status content in the rows beneath it. */
+.members-table .column-header.membership-header-group .label {
+    -fx-alignment: CENTER_RIGHT;
+}
+
+.members-table .filler {
+    -fx-background-color: transparent;
+}
+
+/* ---- Rows: quieter than the Attendance "stacked card" treatment —
+        subtle bottom separators instead of a bordered/shadowed card per
+        row, a denser row height, and calm hover/selected feedback. ---- */
+
+.members-table {
+    -fx-fixed-cell-size: 60;
+}
+
+.members-table .table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-color: transparent transparent -color-border transparent;
+    -fx-border-insets: 0;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 0;
+    -fx-effect: none;
+}
+
+/* Neutral gray, not blue-tinted like the previous #F1F5FC — kept clearly
+   apart from the blue header cap (#E4E9F5) and the blue Identity/
+   Membership divider, so hovering a row is never confused with that
+   grouping area. Still light enough to read as a quiet, premium hover
+   on this table's near-white row background (#FAFCFE). */
+.members-table .table-row-cell:hover {
+    -fx-background-color: #EEF0F3;
+    -fx-border-color: transparent transparent -color-border transparent;
+    -fx-effect: none;
+}
+
+/* A crisp 3px blue edge (in addition to the row's own background tint)
+   is the one deliberate "selected" signal — restrained rather than a
+   full blue flood, and reads as an intentional, premium-grid selection
+   marker instead of just a color swap.
+
+   The accent is painted as two stacked background layers (blue base,
+   blue-soft inset 3px from the left) rather than a 3px left border: in
+   JavaFX a Region's insets include its border widths, so a left border
+   here would push every cell in the row 3px to the right the moment it
+   was selected, making the row's content visibly jump. Backgrounds don't
+   affect layout, so this draws the identical accent with no shift. */
+.members-table .table-row-cell:selected {
+    -fx-background-color: -color-blue, -color-blue-soft;
+    -fx-background-insets: 0, 0 0 0 3;
+    -fx-border-color: transparent transparent -color-border transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.members-table .table-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0 22 0 22;
+}
+
+.members-table .placeholder {
+    -fx-background-color: #FFFFFF;
+}
+
+.members-table .placeholder .label {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 13px;
+}
+
+/* ---- Identity group (memberColumn: photo, name, phone · since) ---- */
+
+.member-row-name {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: -0.1px;
+}
+
+/* Secondary identity metadata (phone) — scoped to this table only via the
+   descendant combinator, so the shared .meta-label/.meta-icon classes
+   used elsewhere (e.g. Attendance) are untouched; here they read a shade
+   smaller/quieter to sharpen the contrast with the member name above. */
+.members-table .meta-label {
+    -fx-font-size: 11px;
+    -fx-font-weight: 500;
+}
+
+.members-table .meta-icon {
+    -fx-icon-size: 11;
+}
+
+/* The plan name is primary membership information, not incidental
+   metadata — at the shared 10px it was the smallest text in the row.
+   Scoped to this table only, so Attendance/Payments keep their chip. */
+.members-table .attendance-plan-label {
+    -fx-font-size: 11px;
+}
+
+.members-table .attendance-plan-icon {
+    -fx-icon-size: 7;
+}
+
+/* Sharp, intentional group boundary between the Identity column and the
+   Membership/Status column — pinned to the Identity cell's right edge by
+   a growing spacer in MemberCell. A crisp blue hairline (not a heavy
+   border) so the group split reads as deliberate, not just a stray line. */
+.member-column-divider {
+    -fx-background-color: -color-border;
+    -fx-min-width: 1;
+    -fx-max-width: 1;
+    -fx-min-height: 26;
+    -fx-max-height: 26;
+}
+
+/* ---- Membership sub-group (statusColumn, left side: plan + dates) ---- */
+
+.member-no-plan-label {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12px;
+    -fx-font-weight: 500;
+}
+
+/* Thin, quiet separator between the Membership and Status sub-groups —
+   spacing-and-line, not a heavy border, per the "subtle separation" brief. */
+.member-status-divider {
+    -fx-background-color: -color-border;
+    -fx-min-width: 1;
+    -fx-max-width: 1;
+    -fx-min-height: 26;
+    -fx-max-height: 26;
+}
+
+/* ---- Status sub-group (statusColumn, right side: remaining + state pill) ---- */
+
+.member-remaining-label {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: -0.1px;
+}
+
+/* Amber "Expiring" pill — the .badge base plus .badge-active/.badge-danger/
+   .badge-no already exist; this is the one missing semantic variant. */
+.badge-warning {
+    -fx-background-color: -color-orange-soft;
+    -fx-text-fill: -color-orange;
+}
+
+/* ---- Actions group (actionsColumn): quiet at rest, a normal ghost
+        button on hover/press — never competing visually with row data. ---- */
+
+/* Fully circular, matching the app's other icon-only controls (header
+   notification/camera-visibility buttons, dialog close buttons) instead
+   of a rounded square, for a more consistent, professional overflow
+   control language across GymGate. */
+.row-action-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 999;
+    -fx-min-width: 30;
+    -fx-min-height: 30;
+    -fx-max-width: 30;
+    -fx-max-height: 30;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+/* Neutral tones drawn from this page's own surface family, rather than
+   the global -color-bg token (which belongs to the other screens' plain
+   white background and reads slightly off against these rows). */
+.row-action-button:hover {
+    -fx-background-color: #E9EDF4;
+}
+
+.row-action-button:pressed {
+    -fx-background-color: #DDE3EC;
+}
+
+.row-action-icon {
+    -fx-icon-color: -color-text-muted;
+    -fx-icon-size: 14;
+}
+
+.row-action-button:hover .row-action-icon {
+    -fx-icon-color: -color-text-dark;
+}
+
+/* ============================================================
+   ATTENDANCE PAGE — premium refinement
+   Scoped to .attendance-page-* / .attendance-view-table / .attendance-when-*
+   so the Payments screen (which still uses the plain .attendance-table look
+   and the plain .attendance-date-combo) is completely unaffected. Mirrors
+   the Members screen's surface hierarchy, header card and table treatment.
+   ============================================================ */
+
+/* ---- Page surface hierarchy: a cooler/deeper tint behind the page than
+        the white panels on it, same as the Members / Plans screens. ---- */
+
+.attendance-page-scroll,
+.attendance-page-scroll > .viewport {
+    -fx-background-color: #E4E9F1;
+}
+
+.attendance-page-root {
+    -fx-background-color: #E4E9F1;
+}
+
+/* ---- Header card: same bordered/elevated white surface as
+        .members-page-header, holding the title/count line and the day
+        selector line. ---- */
+
+.attendance-page-header {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 13 20 13 20;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.04), 8, 0, 0, 2);
+}
+
+/* Day-selector card: same bordered/elevated white surface as the header,
+   a row below it (the parent VBox's 12px spacing is the gap between them). */
+.attendance-date-bar {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 11 16 11 16;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.04), 8, 0, 0, 2);
+}
+
+.attendance-title-accent {
+    -fx-background-color: -color-blue;
+    -fx-background-radius: 3;
+    -fx-min-width: 4;
+    -fx-max-width: 4;
+    -fx-min-height: 40;
+    -fx-max-height: 40;
+}
+
+.attendance-page-header .page-title {
+    -fx-letter-spacing: -0.2px;
+}
+
+.attendance-page-header .page-subtitle {
+    -fx-font-size: 12px;
+}
+
+.attendance-date-hint-icon {
+    -fx-icon-color: -color-text-muted;
+    -fx-icon-size: 13;
+}
+
+.attendance-date-hint {
+    -fx-text-fill: #55607A;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 0.5px;
+    -fx-padding: 0 6 0 0;
+}
+
+/* Day-selector combos, scoped to the date bar: same compact inset-field
+   language as the Members search fields (40px, page-tint fill, hairline
+   border, blue focus) instead of the taller white/elevated base combo. */
+.attendance-date-bar .attendance-date-combo {
+    -fx-background-color: #E4E9F1;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-pref-height: 40;
+    -fx-effect: none;
+}
+
+.attendance-date-bar .attendance-date-combo:hover {
+    -fx-border-color: -color-text-muted;
+}
+
+.attendance-date-bar .attendance-date-combo:focused,
+.attendance-date-bar .attendance-date-combo:showing {
+    -fx-border-color: -color-blue;
+    -fx-effect: dropshadow(gaussian, rgba(47,107,255,0.18), 10, 0, 0, 0);
+}
+
+/* ---- Table frame: anchors the table as a bordered, softly elevated panel,
+        identical to .members-table-frame. ---- */
+
+.attendance-table-frame {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.05), 10, 0, 0, 3);
+}
+
+/* ---- Refined, visible header (Attendance only). Declared after
+        .attendance-table's collapsed-header rules so it wins the cascade on
+        cells carrying both classes. Same neutral band as the Members table. ---- */
+
+.attendance-view-table .column-header-background {
+    -fx-max-height: 28;
+    -fx-pref-height: 28;
+    -fx-min-height: 28;
+    -fx-background-color: #EFF1F5;
+    -fx-background-radius: 12 12 0 0;
+    -fx-border-color: transparent transparent #D9DEE7 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.attendance-view-table .column-header {
+    -fx-max-height: 28;
+    -fx-pref-height: 28;
+    -fx-background-color: transparent;
+}
+
+.attendance-view-table .column-header .label {
+    -fx-text-fill: #55607A;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 0.5px;
+    -fx-padding: 0 22 0 22;
+}
+
+/* Member | Check-in boundary in the header — a neutral hairline, same colour
+   and role as the row-level .member-column-divider, inset 22px on the right
+   so it lands directly above it. */
+.attendance-view-table .column-header.attendance-member-header-group {
+    -fx-border-color: transparent #D9DEE7 transparent transparent;
+    -fx-border-width: 0 1 0 0;
+    -fx-border-insets: 9 22 9 0;
+}
+
+/* "Member" inset on the left so it sits above where the name begins in the
+   rows (22px cell inset + 44px avatar + 13px gap ≈ 79px). */
+.attendance-view-table .column-header.attendance-member-header-group .label {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 22 0 78;
+}
+
+/* "Check-in Time" right-aligns to match the right-aligned check-in content. */
+.attendance-view-table .column-header.attendance-when-header-group .label {
+    -fx-alignment: CENTER_RIGHT;
+}
+
+.attendance-view-table .filler {
+    -fx-background-color: transparent;
+}
+
+/* ---- Rows: same quiet treatment as the Members table — a denser row
+        height, subtle bottom separators instead of a bordered/shadowed card
+        per row, and calm hover/selected feedback. ---- */
+
+.attendance-view-table {
+    -fx-fixed-cell-size: 60;
+}
+
+.attendance-view-table .table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-color: transparent transparent -color-border transparent;
+    -fx-border-insets: 0;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 0;
+    -fx-effect: none;
+}
+
+.attendance-view-table .table-row-cell:hover {
+    -fx-background-color: #EEF0F3;
+    -fx-border-color: transparent transparent -color-border transparent;
+    -fx-effect: none;
+}
+
+/* A crisp blue left edge is the one deliberate "selected" signal — painted
+   as two stacked background layers (not a left border) so the row's content
+   doesn't shift when selected. Identical to the Members table. */
+.attendance-view-table .table-row-cell:selected {
+    -fx-background-color: -color-blue, -color-blue-soft;
+    -fx-background-insets: 0, 0 0 0 3;
+    -fx-border-color: transparent transparent -color-border transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.attendance-view-table .table-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0 22 0 22;
+}
+
+.attendance-view-table .placeholder {
+    -fx-background-color: #FFFFFF;
+}
+
+.attendance-view-table .placeholder .label {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 13px;
+}
+
+/* Check-in time — the primary value in the check-in group, same weight/scale
+   as the Members "days left" remaining value, over a muted caption reusing
+   the shared .meta-label. Scoped .meta-label/.meta-icon read a shade smaller
+   here to sharpen the contrast with the value above, matching how the
+   Members table scopes the same classes. */
+.attendance-view-table .meta-label {
+    -fx-font-size: 11px;
+}
+
+.attendance-view-table .meta-icon {
+    -fx-icon-size: 11;
+}
+
+.attendance-when-time {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 14px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: -0.2px;
+}
+
+/* ============================================================
+   PAYMENTS PAGE — premium refinement
+   Scoped to .payments-page-* / .payments-view-table / .payments-*
+   so the Members and Attendance screens are completely unaffected.
+   Mirrors the Attendance screen's surface hierarchy, header card,
+   date bar and table treatment (identity group + right-aligned
+   payment group).
+   ============================================================ */
+
+/* ---- Page surface hierarchy: a cooler/deeper tint behind the page than
+        the white panels on it, same as the Members / Plans / Attendance
+        screens. ---- */
+
+.payments-page-scroll,
+.payments-page-scroll > .viewport {
+    -fx-background-color: #E4E9F1;
+}
+
+.payments-page-root {
+    -fx-background-color: #E4E9F1;
+}
+
+/* ---- Header card: same bordered/elevated white surface as
+        .members-page-header / .attendance-page-header, holding the
+        title line and the revenue + count summary. ---- */
+
+.payments-page-header {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 13 20 13 20;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.04), 8, 0, 0, 2);
+}
+
+.payments-title-accent {
+    -fx-background-color: -color-blue;
+    -fx-background-radius: 3;
+    -fx-min-width: 4;
+    -fx-max-width: 4;
+    -fx-min-height: 40;
+    -fx-max-height: 40;
+}
+
+.payments-page-header .page-title {
+    -fx-letter-spacing: -0.2px;
+}
+
+.payments-page-header .page-subtitle {
+    -fx-font-size: 12px;
+}
+
+/* Revenue summary — a labelled stat, not a bare badge: a small muted
+   caption (same treatment as the table header labels and the date hint)
+   over a strong grouped-numeral value. The payment count keeps the shared
+   .member-count-badge pill, matching Members / Attendance. */
+.payments-revenue-block {
+    -fx-padding: 0 2 0 0;
+}
+
+.payments-revenue-caption {
+    -fx-text-fill: #55607A;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 0.5px;
+}
+
+.payments-revenue-value {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 17px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: -0.3px;
+}
+
+.payments-header-divider {
+    -fx-background-color: -color-border;
+    -fx-min-width: 1;
+    -fx-max-width: 1;
+    -fx-min-height: 30;
+    -fx-max-height: 30;
+}
+
+/* ---- Date-selector card: same bordered/elevated white surface as the
+        header, a row below it (the parent VBox's 12px spacing is the gap). ---- */
+
+.payments-date-bar {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 11 16 11 16;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.04), 8, 0, 0, 2);
+}
+
+.payments-date-hint-icon {
+    -fx-icon-color: -color-text-muted;
+    -fx-icon-size: 13;
+}
+
+.payments-date-hint {
+    -fx-text-fill: #55607A;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 0.5px;
+    -fx-padding: 0 6 0 0;
+}
+
+/* Day-selector combos, scoped to the date bar: same compact inset-field
+   language as the Members search fields (40px, page-tint fill, hairline
+   border, blue focus) instead of the taller white/elevated base combo. */
+.payments-date-bar .attendance-date-combo {
+    -fx-background-color: #E4E9F1;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-pref-height: 40;
+    -fx-effect: none;
+}
+
+.payments-date-bar .attendance-date-combo:hover {
+    -fx-border-color: -color-text-muted;
+}
+
+.payments-date-bar .attendance-date-combo:focused,
+.payments-date-bar .attendance-date-combo:showing {
+    -fx-border-color: -color-blue;
+    -fx-effect: dropshadow(gaussian, rgba(47,107,255,0.18), 10, 0, 0, 0);
+}
+
+/* ---- Table frame: anchors the table as a bordered, softly elevated panel,
+        identical to .members-table-frame / .attendance-table-frame. ---- */
+
+.payments-table-frame {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.05), 10, 0, 0, 3);
+}
+
+/* ===================== PAYMENTS — REVENUE STATISTICS ===================== */
+/* The Statistics view of the Payments screen: a calendar heat-map (Month) or a
+   bar chart (Year / All time). Shares the .payments-table-frame surface. */
+
+.payments-stats-pane {
+    -fx-padding: 0;
+}
+.payments-stats-head {
+    -fx-padding: 14 18 12 18;
+    -fx-border-color: transparent transparent -color-border transparent;
+    -fx-border-width: 0 0 1 0;
+}
+.payments-stats-title {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: -0.1px;
+}
+.payments-stats-hint {
+    -fx-text-fill: #8993A6;
+    -fx-font-size: 11.5px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 0.2px;
+}
+.payments-stats-pattern {
+    -fx-text-fill: #5B6472;
+    -fx-font-size: 11px;
+    -fx-font-weight: 600;
+    -fx-letter-spacing: 0.1px;
+}
+.payments-stats-empty {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 13px;
+}
+.payments-stats-empty-icon {
+    -fx-icon-size: 28;
+    -fx-icon-color: #C6CDD9;
+}
+
+/* ---- Revenue bar chart (Day / Month / Year). RevenueBarChart draws its own
+        solid hairline grid lines and a dashed average benchmark; Modena's grid /
+        zero lines and alternating fills are disabled in code. Bars are flat: the
+        peak period is accented and the still-open current period is drawn
+        lighter to read as "in progress". ---- */
+.payments-chart {
+    -fx-padding: 18 18 4 6;
+}
+.payments-chart .chart-plot-background,
+.payments-chart .chart-content {
+    -fx-background-color: transparent;
+}
+.payments-chart .payments-grid-line {
+    -fx-stroke: #EDF0F5;
+    -fx-stroke-width: 1;
+}
+.payments-chart .chart-bar {
+    -fx-bar-fill: #5C88EC;
+    -fx-background-color: #5C88EC;
+    -fx-background-radius: 4 4 0 0;
+    -fx-background-insets: 0;
+}
+.payments-chart .chart-bar:hover {
+    -fx-bar-fill: #3F6FE3;
+    -fx-background-color: #3F6FE3;
+}
+.payments-chart .payments-bar-strong {
+    -fx-bar-fill: #2F6BFF;
+    -fx-background-color: #2F6BFF;
+}
+.payments-chart .payments-bar-strong:hover {
+    -fx-bar-fill: #1E56E8;
+    -fx-background-color: #1E56E8;
+}
+.payments-chart .payments-bar-current {
+    -fx-bar-fill: #BDD0F5;
+    -fx-background-color: #BDD0F5;
+}
+.payments-chart .payments-bar-current:hover {
+    -fx-bar-fill: #A9C1F0;
+    -fx-background-color: #A9C1F0;
+}
+.payments-chart .axis {
+    -fx-tick-label-fill: #9AA4B4;
+    -fx-font-size: 9.5px;
+    -fx-font-weight: 600;
+    -fx-tick-length: 0;
+    -fx-minor-tick-length: 0;
+    -fx-tick-label-gap: 6;
+}
+.payments-chart .axis:left {
+    -fx-tick-label-fill: #AEB6C3;
+}
+.payments-chart .axis:bottom {
+    -fx-tick-label-fill: #8B95A6;
+    -fx-border-color: #DBE0EA transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+.payments-chart .axis-tick-mark,
+.payments-chart .axis-minor-tick-mark {
+    -fx-stroke: transparent;
+}
+
+/* Overlay drawn by TrendBarChart: direct value labels on the peak (strong ink)
+   and still-open current period (muted). */
+.payments-chart .payments-bar-value {
+    -fx-fill: #1B2437;
+    -fx-font-size: 10.5px;
+    -fx-font-weight: 800;
+}
+.payments-chart .payments-bar-value-current {
+    -fx-fill: #98A3B7;
+    -fx-font-size: 10px;
+    -fx-font-weight: 700;
+}
+
+/* Hover tooltip: a refined dark-slate pill — brand-blue dot, bold amount, dim unit. */
+.payments-bar-tip {
+    -fx-background-color: #0F1729;
+    -fx-background-radius: 9;
+    -fx-border-color: rgba(255, 255, 255, 0.10);
+    -fx-border-radius: 9;
+    -fx-border-width: 1;
+    -fx-padding: 8 12 8 12;
+    -fx-effect: dropshadow(gaussian, rgba(10, 16, 32, 0.42), 18, 0.08, 0, 8);
+}
+.payments-bar-tip > .label {
+    -fx-padding: 0;
+}
+.payments-bar-tip-dot {
+    -fx-min-width: 6;
+    -fx-min-height: 6;
+    -fx-max-width: 6;
+    -fx-max-height: 6;
+    -fx-background-color: #5C88EC;
+    -fx-background-radius: 3;
+}
+.payments-bar-tip-amount {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: -0.2px;
+}
+.payments-bar-tip-currency {
+    -fx-text-fill: rgba(255, 255, 255, 0.52);
+    -fx-font-size: 9.5px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 0.5px;
+}
+
+/* ---- Refined, visible header (Payments only). Declared after
+        .attendance-table's collapsed-header rules so it wins the cascade on
+        cells carrying both classes. Same neutral band as the Members and
+        Attendance tables. ---- */
+
+.payments-view-table .column-header-background {
+    -fx-max-height: 28;
+    -fx-pref-height: 28;
+    -fx-min-height: 28;
+    -fx-background-color: #EFF1F5;
+    -fx-background-radius: 12 12 0 0;
+    -fx-border-color: transparent transparent #D9DEE7 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.payments-view-table .column-header {
+    -fx-max-height: 28;
+    -fx-pref-height: 28;
+    -fx-background-color: transparent;
+    /* Thin vertical rule between header cells so each column reads as a
+       distinct lane; body cells stay borderless for a clean, non-spreadsheet
+       look. */
+    -fx-border-color: transparent #E3E7EE transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* Every header is centred (both axes) over its column, with cell content
+   centred to match — EXCEPT the Member column (see .payments-member-col).
+   12px / 800 / dark slate — matches the Members table header treatment. */
+.payments-view-table .column-header .label {
+    -fx-text-fill: #333D52;
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: 0.5px;
+    -fx-padding: 0 14 0 14;
+    -fx-alignment: CENTER;
+}
+
+/* Member column keeps its existing left alignment, header and data both. */
+.payments-view-table .column-header.payments-member-col .label {
+    -fx-alignment: CENTER_LEFT;
+}
+
+.payments-view-table .filler {
+    -fx-background-color: transparent;
+}
+
+/* ---- Rows: same quiet treatment as the Members / Attendance tables — a
+        denser row height, subtle bottom separators instead of a bordered/
+        shadowed card per row, and calm hover/selected feedback. ---- */
+
+.payments-view-table {
+    -fx-fixed-cell-size: 60;
+}
+
+.payments-view-table .table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-border-color: transparent transparent -color-border transparent;
+    -fx-border-insets: 0;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 0;
+    -fx-effect: none;
+}
+
+.payments-view-table .table-row-cell:hover {
+    -fx-background-color: #EEF0F3;
+    -fx-border-color: transparent transparent -color-border transparent;
+    -fx-effect: none;
+}
+
+/* A crisp blue left edge is the one deliberate "selected" signal — painted
+   as two stacked background layers (not a left border) so the row's content
+   doesn't shift when selected. Identical to the Members / Attendance tables. */
+.payments-view-table .table-row-cell:selected {
+    -fx-background-color: -color-blue, -color-blue-soft;
+    -fx-background-insets: 0, 0 0 0 3;
+    -fx-border-color: transparent transparent -color-border transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.payments-view-table .table-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0 14 0 14;
+    -fx-alignment: CENTER;
+}
+
+.payments-view-table .placeholder {
+    -fx-background-color: #FFFFFF;
+}
+
+.payments-view-table .placeholder .label {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 13px;
+}
+
+/* Plan name — a co-primary anchor of the row alongside the member name, same
+   weight/size/tracking as .member-row-name. Plain text, no chip or badge.
+   Mirrors .members-plan-name so both tables read identically. */
+.payments-plan-name {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: -0.1px;
+}
+
+.payments-cell-icon {
+    -fx-icon-color: -color-text-muted;
+    -fx-icon-size: 12;
+}
+
+/* séance sale rows in the payments list — 44px badge to match the member avatar */
+.payments-seance-badge {
+    -fx-background-color: -color-blue-soft;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(47,107,255,0.18);
+    -fx-border-radius: 999;
+    -fx-border-width: 1;
+    -fx-min-width: 44;  -fx-min-height: 44;
+    -fx-max-width: 44;  -fx-max-height: 44;
+}
+.payments-seance-glyph {
+    -fx-icon-color: -color-blue;
+    -fx-icon-size: 16;
+}
+
+/* Date / time — column values a clear step below the primary anchors.
+   Mirrors .members-cell-value. */
+.payments-cell-value {
+    -fx-text-fill: #55607A;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-letter-spacing: -0.1px;
+}
+
+/* Amount — the terminal value in the row, right-aligned, same weight/scale
+   as the Attendance "check-in time" and the Members "days left" values. */
+.payments-amount-value {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 14px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: -0.2px;
+}
+
+/* ============================================================
+   MEMBERS TABLE — multi-column layout
+   The Members table moved from two wide groups (Identity | Membership+Status)
+   to six real columns (Member · Plan · Start · End · Remaining · Status) plus
+   the actions column. These rules retune the header/cell padding for the
+   denser column set and style the new Plan / date / remaining cells. They
+   sit after the base .members-table rules above so they win the cascade.
+   ============================================================ */
+
+/* Every header is centred (both axes) over its column, and its cell content
+   is centred to match — EXCEPT the Member column, which stays left-aligned
+   (see .members-member-col below). 12px / 800 / dark slate with a little
+   tracking: the heaviest weight in the table so the header row reads as a
+   distinct band above the data, without being oversized. */
+.members-table .column-header .label {
+    -fx-padding: 0 14 0 14;
+    -fx-alignment: CENTER;
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #333D52;
+}
+
+.members-table .table-cell {
+    -fx-padding: 0 14 0 14;
+    -fx-alignment: CENTER;
+}
+
+/* Member column keeps its existing left alignment, header and data both. */
+.members-table .column-header.members-member-col .label {
+    -fx-alignment: CENTER_LEFT;
+}
+
+/* Thin vertical rule between header cells so each column reads as a distinct
+   lane; body cells stay borderless for a clean, non-spreadsheet look. */
+.members-table .column-header {
+    -fx-border-color: transparent #E3E7EE transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+/* Plan name — a co-primary anchor of the row alongside the member name, so
+   it carries the same weight/size/tracking as .member-row-name. Plain text,
+   no chip or badge: the typographic strength alone signals "this is the
+   important value in this column". */
+.members-plan-name {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: -0.1px;
+}
+
+.members-cell-icon {
+    -fx-icon-color: -color-text-muted;
+    -fx-icon-size: 12;
+}
+
+/* Membership dates — column values a clear step below the primary anchors:
+   the same secondary slate as the headers, but larger and untracked, and a
+   touch of negative tracking so the numerals read tight and scannable. */
+.members-cell-value {
+    -fx-text-fill: #55607A;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-letter-spacing: -0.1px;
+}
+
+/* Placeholder em dash for an absent date / remaining count — recedes further
+   than a real value so empty cells read as intentionally blank. */
+.members-cell-muted {
+    -fx-text-fill: #AEB4C0;
+    -fx-font-size: 13px;
+}
+
+/* ============================================================
+   GLOBAL PREMIUM SCROLLBAR
+   Thin, minimal, blue-accented scrollbar for every scrollable surface
+   in GymGate (ScrollPanes, TableViews, ComboBox popups, ...) — replaces
+   the default JavaFX/Modena scrollbar chrome app-wide. Purely visual:
+   no scrolling behavior changes. A container that wants a different
+   thickness than the default here (e.g. .home-scroll, .chips-scroll)
+   can still override -fx-pref-width/-fx-pref-height on top of this;
+   everything else (thumb color/shape/hover) is inherited automatically.
+   ============================================================ */
+
+.scroll-bar {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 2;
+}
+
+.scroll-bar:vertical {
+    -fx-pref-width: 9;
+}
+
+.scroll-bar:horizontal {
+    -fx-pref-height: 9;
+}
+
+.scroll-bar .track,
+.scroll-bar .track-background {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-width: 0;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: rgba(27,36,55,0.15);
+    -fx-background-radius: 999;
+    -fx-background-insets: 0;
+}
+
+.scroll-bar:hover .thumb {
+    -fx-background-color: rgba(27,36,55,0.24);
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: -color-blue;
+}
+
+.scroll-bar .thumb:pressed {
+    -fx-background-color: derive(-color-blue, -12%);
+}
+
+/* Modena's step-buttons/arrows read as dated chrome — collapse them to
+   nothing for a clean, minimal, thumb-only scrollbar. */
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+    -fx-max-width: 0;
+    -fx-max-height: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
+
+/* ===================== MEMBER DETAIL ===================== */
+/* Per-member profile + history, swapped in over the members list. Built on the
+   shared surface family: the Members page tint, .members-page-header for the
+   identity band, .panel-card for the facts rail, .stat-card for the KPI strip,
+   .attendance-table + .members-table for the two history tables, .badge for
+   status. Only the detail-specific typography / small parts below are new. */
+
+.member-detail-root {
+    -fx-background-color: #E4E9F1;
+}
+
+/* ---- Back link: a quiet breadcrumb, not a button ---- */
+.member-detail-back {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 2 6 2 2;
+    -fx-cursor: hand;
+}
+.member-detail-back-label {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+}
+.member-detail-back-icon {
+    -fx-icon-color: -color-text-muted;
+    -fx-icon-size: 11;
+}
+.member-detail-back:hover .member-detail-back-label {
+    -fx-text-fill: -color-blue;
+}
+.member-detail-back:hover .member-detail-back-icon {
+    -fx-icon-color: -color-blue;
+}
+
+/* ---- Identity band: the members-page-header surface, given more presence ---- */
+.member-detail-identity {
+    -fx-padding: 18 22 18 22;
+}
+.member-detail-accent {
+    -fx-min-height: 60;
+    -fx-max-height: 60;
+}
+.member-detail-avatar {
+    -fx-background-color: linear-gradient(to bottom right, #9CA9C2, #64748B);
+    -fx-background-radius: 999;
+    -fx-min-width: 64;
+    -fx-min-height: 64;
+    -fx-max-width: 64;
+    -fx-max-height: 64;
+}
+.member-detail-avatar-label {
+    -fx-text-fill: -color-white;
+    -fx-font-size: 21px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: -0.5px;
+}
+.member-detail-name {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 23px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: -0.6px;
+}
+.member-detail-contact {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12.5px;
+    -fx-font-weight: 500;
+}
+
+/* Plan chip: the current plan reads as one distinct object — a bordered
+   inset pill with the plan name in strong type and the term details muted. */
+.member-detail-plan-chip {
+    -fx-background-color: -color-bg;
+    -fx-background-radius: 8;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 4 11 4 9;
+}
+.member-detail-plan-icon {
+    -fx-icon-color: -color-blue;
+    -fx-icon-size: 11;
+}
+.member-detail-plan-name {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: -0.2px;
+}
+.member-detail-plan-meta {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12px;
+    -fx-font-weight: 500;
+}
+.member-detail-plan-sep {
+    -fx-text-fill: #C2C9D6;
+    -fx-font-size: 11px;
+}
+
+/* ---- KPI strip: compact horizontal tiles (icon + value/label) ---- */
+.member-detail-kpi {
+    -fx-background-color: -color-white;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 12 16 12 13;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.05), 9, 0, 0, 3);
+}
+.member-detail-kpi:hover {
+    -fx-border-color: #D5DBE6;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.08), 13, 0, 0, 4);
+}
+.member-detail-kpi .icon-tile {
+    -fx-min-width: 36;
+    -fx-min-height: 36;
+    -fx-max-width: 36;
+    -fx-max-height: 36;
+    -fx-background-radius: 10;
+}
+.member-detail-kpi-value {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 22px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: -0.4px;
+}
+.member-detail-kpi-label {
+    -fx-text-fill: #5A6577;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 0.3px;
+}
+
+/* ---- Section headers: one strong treatment for every section title on the
+        screen — facts panels and history alike read as real headings. ---- */
+.member-detail-root .panel-title {
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-text-fill: -color-text-dark;
+    -fx-letter-spacing: -0.1px;
+}
+.detail-section-icon {
+    -fx-icon-color: #8993A6;
+    -fx-icon-size: 12;
+}
+
+/* ---- Facts rows: a definition list with quiet hairline separators so each
+        section reads as a structured panel rather than a loose list ---- */
+.member-detail-facts {
+    -fx-background-color: -color-white;
+}
+.detail-row {
+    -fx-padding: 8 0 8 0;
+    -fx-min-height: 34;
+    -fx-border-color: rgba(20,30,60,0.06) transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+.detail-row-flush {
+    -fx-border-color: transparent;
+}
+.detail-row-label {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12px;
+    -fx-font-weight: 500;
+}
+.detail-row-value {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 13px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: -0.1px;
+}
+.detail-row-value-muted {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-weight: 600;
+    -fx-letter-spacing: 0;
+}
+
+.detail-history-caption {
+    -fx-text-fill: #8993A6;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 0.3px;
+}
+
+/* ---- History toggle: Payments / Attendance segmented control. Reuses
+        .filter-group / .filter-option; the selected option lifts to a white
+        pill, matching the segmented-control pattern used elsewhere. ---- */
+.filter-option-history:hover {
+    -fx-text-fill: -color-text-dark;
+}
+.filter-option-history:selected {
+    -fx-background-color: -color-white;
+    -fx-text-fill: -color-text-dark;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.14), 5, 0, 0, 1);
+}
+
+/* ---- Per-month visit bars: uniform track, muted fill, the peak month
+        picked out in the product blue ---- */
+.mini-bar-row {
+    -fx-min-height: 21;
+}
+.mini-bar-track {
+    -fx-background-color: #EDF0F6;
+    -fx-background-radius: 5;
+    -fx-min-height: 10;
+    -fx-max-height: 10;
+}
+.mini-bar-fill {
+    -fx-background-color: #BACCF3;
+    -fx-background-radius: 5;
+    -fx-min-height: 10;
+    -fx-max-height: 10;
+}
+.mini-bar-fill-peak {
+    -fx-background-color: -color-blue;
+}
+.mini-bar-month {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 11px;
+    -fx-font-weight: 600;
+}
+.mini-bar-count {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+}
+.mini-bar-count-peak {
+    -fx-text-fill: -color-blue;
+}
+
+/* ---- History tables: a crisp SaaS data grid. Firm header, hairline column
+        rules (inset from the row edges so they read as column dividers, not a
+        hard spreadsheet grid) and defined row separators. Header and cell
+        padding are locked together so every column header sits exactly above
+        its data. ---- */
+.member-detail-table {
+    -fx-fixed-cell-size: 46;
+    -fx-background-color: transparent;
+}
+
+/* Header: a quiet, refined band — muted tracked caps, a firm bottom rule,
+   hairline column dividers inset from the top and bottom edges so they read
+   as dividers, not a spreadsheet grid. */
+.member-detail-table .column-header-background {
+    -fx-background-color: #F7F8FB;
+    -fx-background-radius: 12 12 0 0;
+    -fx-border-color: transparent transparent #D3D9E3 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+.member-detail-table .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent #E0E4EC transparent transparent;
+    -fx-border-width: 0 1 0 0;
+    -fx-padding: 0;
+}
+.member-detail-table .column-header .label {
+    -fx-padding: 0 16 0 16;
+    -fx-text-fill: #7A8496;
+    -fx-font-size: 10.5px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 0.6px;
+    -fx-alignment: center;
+}
+.member-detail-table .filler {
+    -fx-background-color: transparent;
+}
+
+/* Body cells: single line, centred, hairline vertical rule between columns
+   (inset top/bottom via a transparent inset so it stops short of the row
+   separators). Typographic weight comes from the per-column style classes. */
+.member-detail-table .table-cell {
+    -fx-padding: 0 16 0 16;
+    -fx-font-size: 12.5px;
+    -fx-text-fill: -color-text-dark;
+    -fx-alignment: center;
+    -fx-border-color: transparent #DCE1EA transparent transparent;
+    -fx-border-width: 0 1 0 0;
+    -fx-border-insets: 8 0 8 0;
+}
+.member-detail-table .table-cell.cell-primary {
+    -fx-font-weight: 700;
+    -fx-text-fill: -color-text-dark;
+}
+.member-detail-table .table-cell.cell-text {
+    -fx-font-weight: 500;
+    -fx-font-size: 12px;
+    -fx-text-fill: #5C6676;
+}
+.member-detail-table .table-cell.cell-value {
+    -fx-font-weight: 800;
+    -fx-text-fill: -color-text-dark;
+    -fx-letter-spacing: -0.2px;
+}
+
+/* Crisp, even row separators. */
+.member-detail-table .table-row-cell {
+    -fx-border-color: transparent transparent #EAEDF3 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-background-color: -color-white;
+}
+
+/* Read-only lists — replace the Members table's blue selection edge with a
+   plain hover-weight tint so a stray click doesn't leave a loud marker. */
+.member-detail-table .table-row-cell:selected {
+    -fx-background-color: #EEF1F6;
+    -fx-background-insets: 0;
+}
+.member-detail-table .table-row-cell:filled:hover {
+    -fx-background-color: #F5F7FA;
+}
+/* The table fills the panel top-to-bottom; keep the run of empty rows below
+   the data clean rather than a ledger of blank ruled lines. */
+.member-detail-table .table-row-cell:empty {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.member-detail-table .table-row-cell:empty .table-cell {
+    -fx-border-color: transparent;
+}
+
+.member-detail-empty {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12.5px;
+}
+
+/* ===================== REPORTS / INSIGHTS ===================== */
+/* Cross-cutting dashboard. Everything here is built from the shared design
+   tokens and the same card / radius / shadow / type language as Home, Members
+   and the Payments-stats views — the screen should read as one more GymGate
+   screen, not a different product. */
+
+.reports-page-scroll,
+.reports-page-scroll > .viewport,
+.reports-page-root {
+    -fx-background-color: #E4E9F1;
+}
+
+/* Header + filter bar: identical surfaces to the Attendance / Payments screens. */
+.reports-page-header {
+    -fx-background-color: -color-white;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 13 20 13 20;
+    -fx-effect: dropshadow(gaussian, rgba(20, 30, 60, 0.04), 8, 0, 0, 2);
+}
+.reports-page-header .page-title {
+    -fx-letter-spacing: -0.2px;
+}
+.reports-page-header .page-subtitle {
+    -fx-font-size: 12px;
+}
+.reports-title-accent {
+    -fx-background-color: -color-blue;
+    -fx-background-radius: 3;
+    -fx-min-width: 4;
+    -fx-max-width: 4;
+    -fx-min-height: 40;
+    -fx-max-height: 40;
+}
+
+.reports-filter-bar {
+    -fx-background-color: -color-white;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 10 16 10 16;
+    -fx-effect: dropshadow(gaussian, rgba(20, 30, 60, 0.04), 8, 0, 0, 2);
+}
+.reports-filter-icon {
+    -fx-icon-color: -color-text-muted;
+    -fx-icon-size: 13;
+}
+.reports-filter-hint {
+    -fx-text-fill: #55607A;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 0.5px;
+    -fx-padding: 0 4 0 0;
+}
+.reports-range-caption {
+    -fx-text-fill: #7E8797;
+    -fx-font-size: 11.5px;
+    -fx-font-weight: 600;
+}
+
+/* Panels — the shared .panel-card surface; this only adds padding + a touch of
+   internal rhythm, matching Home's stats panel. */
+.reports-panel {
+    -fx-padding: 17 19 17 19;
+}
+.reports-panel-sub {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 0.3px;
+}
+.reports-chart-slot {
+    -fx-min-height: 250;
+}
+.reports-empty {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12.5px;
+    -fx-padding: 14 0 14 0;
+}
+.reports-footnote {
+    -fx-text-fill: #9198A6;
+    -fx-font-size: 10.5px;
+    -fx-padding: 2 0 0 4;
+}
+
+/* ---- KPI cards: the compact horizontal tile from Member Detail
+        (.member-detail-kpi) — icon tile + value/label — plus a delta chip. ---- */
+.reports-kpi {
+    -fx-background-color: -color-white;
+    -fx-background-radius: 12;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-padding: 13 15 13 13;
+    -fx-min-width: 150;
+    -fx-effect: dropshadow(gaussian, rgba(20, 30, 60, 0.05), 9, 0, 0, 3);
+}
+/* Revenue card holds two figures (total + séance), so it takes two slots. */
+.reports-kpi-wide {
+    -fx-min-width: 320;
+}
+.reports-kpi-divider {
+    -fx-min-width: 1;
+    -fx-pref-width: 1;
+    -fx-background-color: -color-border;
+}
+.reports-kpi:hover {
+    -fx-border-color: #D5DBE6;
+    -fx-effect: dropshadow(gaussian, rgba(20, 30, 60, 0.09), 14, 0, 0, 5);
+}
+.reports-kpi .icon-tile {
+    -fx-min-width: 34;
+    -fx-min-height: 34;
+    -fx-max-width: 34;
+    -fx-max-height: 34;
+    -fx-background-radius: 10;
+}
+.reports-kpi-value {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 21px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: -0.4px;
+}
+.reports-kpi-label {
+    -fx-text-fill: #5A6577;
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-letter-spacing: 0.3px;
+}
+.reports-kpi-delta {
+    -fx-background-radius: 999;
+    -fx-padding: 3 9 3 8;
+    -fx-font-size: 10.5px;
+    -fx-font-weight: 800;
+}
+.reports-kpi-delta .label {
+    -fx-font-size: 10.5px;
+    -fx-font-weight: 800;
+}
+.reports-kpi-delta-icon {
+    -fx-icon-size: 9;
+}
+.reports-delta-up {
+    -fx-background-color: -color-green-soft;
+}
+.reports-delta-up .label,
+.reports-delta-up .reports-kpi-delta-icon {
+    -fx-text-fill: -color-green;
+    -fx-icon-color: -color-green;
+}
+.reports-delta-down {
+    -fx-background-color: #FDE8E8;
+}
+.reports-delta-down .label,
+.reports-delta-down .reports-kpi-delta-icon {
+    -fx-text-fill: #DC2626;
+    -fx-icon-color: #DC2626;
+}
+
+/* ---- New-vs-renewal trend: same hairline-grid + quiet-axis treatment as the
+        Payments / Attendance TrendBarChart (grid lines painted by
+        TrendStackedBarChart, styled via the shared .payments-grid-line). ---- */
+.reports-trend-chart {
+    -fx-padding: 16 14 2 4;
+}
+.reports-trend-chart .chart-plot-background,
+.reports-trend-chart .chart-content {
+    -fx-background-color: transparent;
+}
+.reports-trend-chart .payments-grid-line {
+    -fx-stroke: #EDF0F5;
+    -fx-stroke-width: 1;
+}
+.reports-trend-chart .default-color0.chart-bar {
+    -fx-bar-fill: -color-blue;
+    -fx-background-color: -color-blue;
+    -fx-background-insets: 0;
+}
+.reports-trend-chart .default-color1.chart-bar {
+    -fx-bar-fill: #9FBEF6;
+    -fx-background-color: #9FBEF6;
+    -fx-background-insets: 0;
+}
+.reports-trend-chart .default-color0.chart-legend-item-symbol {
+    -fx-background-color: -color-blue;
+}
+.reports-trend-chart .default-color1.chart-legend-item-symbol {
+    -fx-background-color: #9FBEF6;
+}
+.reports-trend-chart .axis {
+    -fx-tick-label-fill: #9AA4B4;
+    -fx-font-size: 9.5px;
+    -fx-font-weight: 600;
+    -fx-tick-length: 0;
+    -fx-minor-tick-length: 0;
+}
+.reports-trend-chart .axis:left {
+    -fx-tick-label-fill: #AFB7C4;
+}
+.reports-trend-chart .axis-tick-mark,
+.reports-trend-chart .axis-minor-tick-mark {
+    -fx-stroke: transparent;
+}
+.reports-trend-chart .axis:bottom {
+    -fx-border-color: #E3E6EE transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+.reports-trend-chart .chart-legend {
+    -fx-background-color: transparent;
+    -fx-padding: 6 0 0 0;
+}
+.reports-trend-chart .chart-legend-item {
+    -fx-text-fill: #7A8494;
+    -fx-font-size: 10.5px;
+    -fx-font-weight: 700;
+}
+.reports-trend-chart .chart-legend-item-symbol {
+    -fx-background-radius: 3;
+    -fx-min-width: 9;
+    -fx-min-height: 9;
+    -fx-max-width: 9;
+    -fx-max-height: 9;
+}
+
+/* ---- Revenue-by-plan horizontal bars ---- */
+.reports-bar-icon {
+    -fx-icon-color: #9BA5B5;
+    -fx-icon-size: 12;
+}
+.reports-bar-name {
+    -fx-font-size: 12.5px;
+    -fx-font-weight: 700;
+    -fx-text-fill: -color-text-dark;
+}
+.reports-bar-value {
+    -fx-font-size: 12px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #4B5568;
+    -fx-letter-spacing: -0.2px;
+}
+.reports-bar-track {
+    -fx-background-color: #EDF0F5;
+    -fx-background-radius: 999;
+    -fx-min-height: 7;
+    -fx-max-height: 7;
+    -fx-pref-height: 7;
+}
+.reports-bar-fill {
+    -fx-background-color: #9FBEF6;
+    -fx-background-radius: 999;
+    -fx-min-height: 7;
+    -fx-max-height: 7;
+}
+.reports-bar-fill-lead {
+    -fx-background-color: -color-blue;
+}
+
+/* ---- Membership composition ---- */
+.reports-composition-bar {
+    -fx-min-height: 12;
+    -fx-max-height: 12;
+    -fx-background-radius: 999;
+    -fx-background-color: #EDF0F5;
+}
+.reports-seg {
+    -fx-min-height: 12;
+    -fx-max-height: 12;
+}
+.reports-seg-active   { -fx-background-color: -color-green; }
+.reports-seg-expiring { -fx-background-color: -color-orange; }
+.reports-seg-expired  { -fx-background-color: -color-red; }
+.reports-seg-noplan   { -fx-background-color: #C4CBD6; }
+
+.reports-dot {
+    -fx-min-width: 8;
+    -fx-min-height: 8;
+    -fx-max-width: 8;
+    -fx-max-height: 8;
+    -fx-background-radius: 4;
+}
+.reports-dot-active   { -fx-background-color: -color-green; }
+.reports-dot-expiring { -fx-background-color: -color-orange; }
+.reports-dot-expired  { -fx-background-color: -color-red; }
+.reports-dot-noplan   { -fx-background-color: #C4CBD6; }
+.reports-comp-row {
+    -fx-padding: 9 1 9 1;
+    -fx-border-color: #EEF0F4 transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+.reports-comp-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #55607A;
+}
+.reports-comp-pct {
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #A2AAB8;
+    -fx-padding: 0 8 0 0;
+}
+.reports-comp-count {
+    -fx-font-size: 13px;
+    -fx-font-weight: 800;
+    -fx-text-fill: -color-text-dark;
+    -fx-min-width: 22;
+    -fx-alignment: center-right;
+}
+
+/* ---- Renewals-due: a quiet GymGate data list — avatar identity group, then
+        end date + an urgency pill. Same row rhythm as the Attendance list. ---- */
+.reports-avatar {
+    -fx-background-color: -color-blue-soft;
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(47, 107, 255, 0.18);
+    -fx-border-radius: 999;
+    -fx-border-width: 1;
+    -fx-min-width: 34;
+    -fx-min-height: 34;
+    -fx-max-width: 34;
+    -fx-max-height: 34;
+}
+.reports-avatar-label {
+    -fx-text-fill: -color-blue;
+    -fx-font-size: 11.5px;
+    -fx-font-weight: 800;
+}
+.reports-row {
+    -fx-padding: 9 2 9 2;
+    -fx-border-color: transparent transparent #EDEFF3 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+.reports-row:hover {
+    -fx-background-color: #F5F7FA;
+}
+.reports-row-name {
+    -fx-font-size: 12.5px;
+    -fx-font-weight: 700;
+    -fx-text-fill: -color-text-dark;
+}
+.reports-row-sub {
+    -fx-font-size: 11px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #8B93A2;
+}
+.reports-row-ends {
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #6B7486;
+}
+.reports-row-more {
+    -fx-font-size: 11px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #7A8494;
+    -fx-padding: 10 0 2 2;
+}
+/* Blue "further out" urgency pill — the .badge base plus .badge-active /
+   .badge-danger / .badge-warning already carry green / red / amber. */
+.reports-badge-soon {
+    -fx-background-color: -color-blue-soft;
+    -fx-text-fill: -color-blue;
+}
+
+/* ============================================================
+   REMINDER REVIEW DIALOG
+   Sequential renewal-reminder cards shown on Home after startup —
+   one member per card (photo + name + green Send), advancing on click.
+   Built in ReminderReviewDialog.java.
+   ============================================================ */
+.reminder-review-card {
+    -fx-background-color: -color-white;
+    -fx-background-radius: 18;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 18;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(20, 30, 60, 0.20), 36, 0, 0, 14);
+}
+
+.reminder-photo {
+    -fx-background-color: #E2E8F0;
+}
+
+.reminder-name {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 20px;
+    -fx-font-weight: 800;
+    -fx-letter-spacing: -0.2px;
+}
+
+.reminder-progress {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+}
+
+.reminder-note {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 12.5px;
+    -fx-font-weight: 600;
+}
+
+.reminder-send-button {
+    -fx-background-color: -color-green;
+    -fx-text-fill: -color-white;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-padding: 12 22 12 22;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+
+.reminder-send-button:hover  { -fx-background-color: #15803D; }
+.reminder-send-button:pressed { -fx-background-color: #166534; }
+
+.reminder-skip-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-padding: 9 22 9 22;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+}
+.reminder-skip-button:hover   { -fx-background-color: #F1F3F7; -fx-text-fill: -color-text-dark; }
+.reminder-skip-button:pressed { -fx-background-color: #E6E9EF; }
+
+/* WhatsApp brand-green disc on the photo's corner */
+.reminder-wa-mark {
+    -fx-background-color: #25D366;
+    -fx-background-radius: 999;
+    -fx-border-color: -color-white;
+    -fx-border-width: 2.5;
+    -fx-border-radius: 999;
+    -fx-min-width: 28;  -fx-min-height: 28;
+    -fx-max-width: 28;  -fx-max-height: 28;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 6, 0, 0, 1);
+}
+
+.reminder-wa-badge {
+    -fx-background-color: -color-green-soft;
+    -fx-background-radius: 999;
+    -fx-padding: 5 13 5 13;
+    -fx-text-fill: #128C7E;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+}
+
+.reminder-details {
+    -fx-background-color: #F4F6FA;
+    -fx-background-radius: 12;
+    -fx-padding: 12 14 12 14;
+}
+
+.reminder-detail-label {
+    -fx-text-fill: #475569;
+    -fx-font-size: 13.5px;
+    -fx-font-weight: 600;
+}
+
+.reminder-detail-icon { -fx-icon-color: #94A3B8; }
+
+/* ---- Settings: on/off toggle (WhatsApp) ---- */
+.setting-toggle {
+    -fx-background-color: #3A404D;
+    -fx-text-fill: #9AA5B8;
+    -fx-font-size: 12px;
+    -fx-font-weight: 700;
+    -fx-padding: 7 18 7 18;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+    -fx-min-width: 66;
+    -fx-cursor: hand;
+}
+.setting-toggle:hover          { -fx-background-color: #454C5A; }
+.setting-toggle:selected       { -fx-background-color: -color-green; -fx-text-fill: white; }
+.setting-toggle:selected:hover { -fx-background-color: #15803D; }
+
+/* ================= Notifications: top toast + header bell list ================= */
+
+/* The transient card that drops in under the header. */
+.toast {
+    -fx-background-color: -color-white;
+    -fx-background-radius: 14;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-padding: 13 18 13 14;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.18), 26, 0.12, 0, 10);
+}
+
+.toast-title {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 13.5px;
+    -fx-font-weight: 700;
+}
+
+.toast-subtitle {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 11.5px;
+}
+
+/* The dropdown behind the bell. */
+.notif-popup {
+    -fx-background-color: -color-white;
+    -fx-background-radius: 16;
+    -fx-border-color: -color-border;
+    -fx-border-radius: 16;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(20,30,60,0.20), 34, 0.14, 0, 14);
+}
+
+.notif-popup-heading {
+    -fx-text-fill: -color-text-dark;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-padding: 2 0 0 2;
+}
+
+.notif-popup-list,
+.notif-popup-list .list-cell,
+.notif-popup-list .viewport {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.notif-popup-list .list-cell:filled:hover {
+    -fx-background-color: -color-bg;
+    -fx-background-radius: 10;
+}
+
+.notif-popup-list .list-cell:selected {
+    -fx-background-color: transparent;
+}
+
+.notif-popup-time {
+    -fx-text-fill: -color-text-muted;
+    -fx-font-size: 10.5px;
+    -fx-padding: 2 0 0 0;
+}

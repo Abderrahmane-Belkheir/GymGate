@@ -1,0 +1,93 @@
+.cine {
+  position: relative;
+  background: var(--ink);
+}
+
+/* Scroll-jacked variant only — :not() keeps this from fighting
+   .cine-static's own height:auto below at equal specificity, which is
+   exactly what let this rule win on mobile even with no video loaded. */
+.cine:not(.cine-static) {
+  height: 380vh;
+}
+
+.cine-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cine-stage {
+  position: relative;
+  width: min(920px, 84vw);
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: #04060b;
+  overflow: hidden;
+}
+
+.cine-stage video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cine-slate {
+  position: absolute;
+  left: 1.4rem;
+  bottom: 1.2rem;
+  margin: 0;
+  padding: 0.35rem 0.7rem;
+  background: rgba(4, 6, 11, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--muted);
+}
+
+/* Static (no footage yet / reduced motion) variant: a normal section, not a
+   tall scroll-jacked one — never leave the visitor scrolling through empty
+   space waiting for a video that isn't there. */
+.cine-static {
+  height: auto;
+  padding-block: var(--section-pad-y);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cine-static .cine-stage {
+  width: min(760px, 90vw);
+  aspect-ratio: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2.5rem, 6vw, 4rem);
+}
+
+.cine-static .cine-slate {
+  position: static;
+  margin-top: 1.6rem;
+}
+
+.cine-fallback-frame {
+  position: relative;
+  display: inline-block;
+  padding: 1.5rem 2rem;
+}
+
+.cine-fallback-art {
+  max-width: 200px;
+  opacity: 0.9;
+}
+
+@media (max-width: 700px) {
+  .cine:not(.cine-static) {
+    height: 260vh;
+  }
+}

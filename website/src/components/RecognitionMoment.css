@@ -1,0 +1,100 @@
+.rec {
+  min-height: 92svh;
+  display: flex;
+  align-items: center;
+  background: var(--ink);
+  border-top: 1px solid var(--line-soft);
+  padding-block: clamp(4rem, 8vw, 6rem);
+}
+
+.rec-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.rec-eyebrow {
+  margin-bottom: 2.6rem;
+}
+
+.rec-stage {
+  position: relative;
+  width: 180px;
+  padding: 2.4rem;
+}
+
+.rec-figure {
+  width: 100%;
+  height: auto;
+  fill: none;
+  stroke: var(--muted-2);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.45;
+  transition: opacity 0.7s var(--ease-out), stroke 0.7s var(--ease-out);
+}
+
+.rec-figure-in {
+  opacity: 1;
+  stroke: var(--signal-strong);
+  animation: rec-pulse 2.6s ease-in-out 0.8s infinite;
+}
+
+@keyframes rec-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rec-figure-in {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.rec-readout {
+  margin-top: 1.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 0.6rem 1rem;
+}
+
+.rec-readout-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--signal-strong);
+  box-shadow: 0 0 0 4px var(--signal-wash);
+  flex-shrink: 0;
+}
+
+.rec-readout-name {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.rec-readout-status {
+  margin: 0.1rem 0 0;
+  font-size: 0.74rem;
+  color: var(--muted);
+  text-align: left;
+}
+
+.rec-statement {
+  margin: 3rem 0 0;
+  max-width: 15ch;
+}

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<!-- Reports / Insights. Cross-cutting, comparative and roster-level figures
+     that no single-entity screen owns. Reuses the shared "home-scroll" /
+     "home-root" shell plus page-scoped "reports-page-*" classes, and the
+     established "panel-card" / "filter-group" / header + filter-bar vocabulary
+     from the Members / Attendance / Payments screens. All dynamic content is
+     built by ReportsController into the fx:id containers below. -->
+<ScrollPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.GymGate.UI.controller.ReportsController"
+            styleClass="home-scroll, reports-page-scroll"
+            fitToWidth="true"
+            fitToHeight="true">
+
+    <VBox styleClass="home-root, reports-page-root" spacing="14">
+        <padding>
+            <Insets top="20" right="28" bottom="24" left="28"/>
+        </padding>
+
+        <!-- Header: title/subtitle only, matching every other screen. -->
+        <HBox alignment="CENTER_LEFT" spacing="12" styleClass="reports-page-header">
+            <Region styleClass="reports-title-accent"/>
+            <VBox spacing="2">
+                <Label text="%Reports" styleClass="page-title"/>
+                <Label text="%Reports_subtitle" styleClass="page-subtitle"/>
+            </VBox>
+        </HBox>
+
+        <!-- Period selector: its own control surface, same as the Attendance /
+             Payments date bars. Resolved range sits on the right. -->
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="reports-filter-bar">
+            <fx:define>
+                <ToggleGroup fx:id="periodToggle"/>
+            </fx:define>
+            <FontIcon iconLiteral="fas-calendar-alt" styleClass="reports-filter-icon"/>
+            <Label text="%Period" styleClass="reports-filter-hint"/>
+            <HBox spacing="0" alignment="CENTER_LEFT" styleClass="filter-group">
+                <ToggleButton fx:id="thisMonthTab" text="%This_month" selected="true"
+                              toggleGroup="$periodToggle" styleClass="filter-option, filter-option-history"/>
+                <ToggleButton fx:id="lastMonthTab" text="%Last_month"
+                              toggleGroup="$periodToggle" styleClass="filter-option, filter-option-history"/>
+                <ToggleButton fx:id="last3Tab" text="%Last_3_months"
+                              toggleGroup="$periodToggle" styleClass="filter-option, filter-option-history"/>
+                <ToggleButton fx:id="yearTab" text="%This_year"
+                              toggleGroup="$periodToggle" styleClass="filter-option, filter-option-history"/>
+            </HBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="rangeCaption" styleClass="reports-range-caption"/>
+        </HBox>
+
+        <!-- Headline KPIs. -->
+        <HBox fx:id="kpiRow" spacing="12"/>
+
+        <!-- Revenue: new-vs-renewal trend + by-plan. -->
+        <HBox spacing="14">
+            <VBox styleClass="panel-card, reports-panel" HBox.hgrow="ALWAYS" spacing="12">
+                <HBox alignment="CENTER_LEFT" spacing="8">
+                    <Label text="%New_vs_renewal_revenue" styleClass="panel-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label text="%Last_12_months" styleClass="reports-panel-sub"/>
+                </HBox>
+                <StackPane fx:id="trendSlot" styleClass="reports-chart-slot" VBox.vgrow="ALWAYS"/>
+            </VBox>
+            <VBox styleClass="panel-card, reports-panel" prefWidth="368" minWidth="308" spacing="14">
+                <Label text="%Revenue_by_plan" styleClass="panel-title"/>
+                <VBox fx:id="planBars" spacing="14"/>
+            </VBox>
+        </HBox>
+
+        <!-- Membership: composition + renewals due. Both panels match height —
+             the composition rows spread to fill the taller renewals panel. -->
+        <HBox spacing="14">
+            <VBox styleClass="panel-card, reports-panel" prefWidth="368" minWidth="308" spacing="14">
+                <HBox alignment="CENTER_LEFT" spacing="8">
+                    <Label text="%Membership" styleClass="panel-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="memberTotal" styleClass="reports-panel-sub"/>
+                </HBox>
+                <VBox fx:id="compositionRows" spacing="12" VBox.vgrow="ALWAYS"/>
+            </VBox>
+            <VBox styleClass="panel-card, reports-panel" HBox.hgrow="ALWAYS" spacing="10">
+                <HBox alignment="CENTER_LEFT" spacing="8">
+                    <Label text="%Renewals_due" styleClass="panel-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="dueSummary" styleClass="reports-panel-sub"/>
+                </HBox>
+                <VBox fx:id="renewalsList" spacing="0"/>
+            </VBox>
+        </HBox>
+
+        <Label text="%Reports_deleted_note" styleClass="reports-footnote" wrapText="true"/>
+    </VBox>
+
+</ScrollPane>

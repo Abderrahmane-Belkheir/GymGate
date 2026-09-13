@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.GymGate.UI.controller.SidebarController"
+      styleClass="sidebar"
+      prefWidth="190" minWidth="190" maxWidth="190">
+
+    <!-- Brand -->
+    <HBox styleClass="sidebar-brand" spacing="12" alignment="CENTER_LEFT">
+        <padding><Insets top="24" right="20" bottom="24" left="20"/></padding>
+
+        <!-- Small circular gym badge: shows the uploaded logo when one is set,
+             otherwise falls back to the dumbbell glyph. Kept in sync by
+             SidebarController via AppEvents.GYM_INFO_UPDATED. -->
+        <StackPane fx:id="brandLogoFrame" styleClass="sidebar-brand-logo"
+                   prefWidth="34" prefHeight="34" minWidth="34" minHeight="34"
+                   maxWidth="34" maxHeight="34">
+            <FontIcon fx:id="brandPlaceholderIcon" iconLiteral="fas-dumbbell" styleClass="sidebar-brand-icon"/>
+            <ImageView fx:id="brandLogoImage" fitWidth="34" fitHeight="34"
+                       preserveRatio="false" visible="false" managed="false"/>
+        </StackPane>
+
+        <VBox spacing="1">
+            <Label fx:id="gymNameLabel" styleClass="sidebar-brand-title"/>
+            <Label text="Reception Console" styleClass="sidebar-brand-subtitle"/>
+        </VBox>
+    </HBox>
+
+    <!-- Navigation items are injected programmatically by SidebarController -->
+    <VBox fx:id="navContainer" styleClass="sidebar-nav" spacing="4">
+        <padding><Insets top="8" right="16" bottom="16" left="16"/></padding>
+    </VBox>
+
+    <Region VBox.vgrow="ALWAYS"/>
+
+    <Separator styleClass="sidebar-separator"/>
+
+<!--    <HBox fx:id="signOutBox" styleClass="sidebar-signout" spacing="12">-->
+<!--        <padding><Insets top="18" right="20" bottom="24" left="20"/></padding>-->
+<!--        <FontIcon iconLiteral="fas-sign-out-alt" styleClass="sidebar-signout-icon"/>-->
+<!--        <Label text="Sign out" styleClass="sidebar-signout-label"/>-->
+<!--    </HBox>-->
+
+</VBox>

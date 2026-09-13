@@ -1,0 +1,184 @@
+.pricing-intro {
+  max-width: 640px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.pricing-intro h2 {
+  margin-top: 0.4em;
+}
+
+.pricing-lede {
+  margin: 1.3rem auto 0;
+}
+
+/* ---------- Desktop / tablet: comparison table ---------- */
+
+.pricing-table {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.pt-row {
+  display: grid;
+  grid-template-columns: 1.7fr repeat(3, 1fr);
+}
+
+.pt-row + .pt-row {
+  border-top: 1px solid var(--line-soft);
+}
+
+.pt-cell {
+  padding: 1rem 1.3rem;
+  display: flex;
+  align-items: center;
+}
+
+.pt-cell + .pt-cell {
+  border-left: 1px solid var(--line-soft);
+}
+
+.pt-cell-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.pt-cell-plan,
+.pt-cell-mark {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.pt-row-head .pt-cell-plan {
+  padding-block: 1.8rem 1.5rem;
+}
+
+.pt-cell-featured {
+  background: var(--signal-wash);
+}
+
+.pt-featured-tag {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--signal-strong);
+  margin: 0 0 0.7rem;
+}
+
+.pt-plan-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.pt-price {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  margin: 0.5rem 0 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.pt-currency {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.pt-price-note {
+  margin: 0.4rem 0 1.1rem;
+  color: var(--muted-2);
+}
+
+.pt-cta {
+  width: 100%;
+}
+
+.pt-mark {
+  display: inline-flex;
+}
+
+.pt-mark-on {
+  color: var(--signal-strong);
+}
+
+.pt-mark-off {
+  color: var(--muted-2);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* ---------- Mobile: stacked plan cards, same data ---------- */
+
+.pricing-cards {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .pricing-table {
+    display: none;
+  }
+
+  .pricing-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    margin-top: 2.4rem;
+  }
+}
+
+.pricing-plan-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.7rem;
+  text-align: center;
+}
+
+.pricing-plan-card-featured {
+  border-color: var(--signal-line);
+  background: var(--signal-wash);
+}
+
+.pricing-plan-features {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 1.3rem 0 0;
+  border-top: 1px solid var(--line-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  text-align: left;
+}
+
+.pricing-plan-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  color: var(--paper);
+}
+
+.pricing-plan-feature-off {
+  color: var(--muted-2);
+}
+
+/* ---------- Footnote ---------- */
+
+.pricing-footnote {
+  margin-top: 1.6rem;
+  text-align: center;
+  color: var(--muted-2);
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 0.82rem;
+}
